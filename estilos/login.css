@@ -1,0 +1,159 @@
+:root{
+    --color_empresa:rgb(40, 166, 204);
+    --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+header{
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.075);
+}
+
+h1{
+    color: black;
+}
+
+
+
+.titulo_psitas{
+    vertical-align:top;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+img{
+    width: 60px;
+    margin-right: 20px;
+   
+}
+
+.imagen_icono{
+    right:1%;
+    position:absolute;
+    display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background:var(--color_fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.90rem;
+    width: 100%;
+    height: 90vh;
+    background: var(--color_fondo);
+  }
+
+
+.container{
+    border-radius: 6px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 60px;
+    text-align: center;
+    width:75%;
+    height: 400px;
+   max-width: 382px;
+   min-width: 300px;
+   
+
+  }
+
+h1{
+    margin-top: 10px;
+}
+
+.header_form{
+    padding: 10px;
+    margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+input{
+    display: block;
+    border: none;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 9px;
+    background: rgb(216, 216, 216);
+    
+
+}
+
+
+label{
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 13%;
+}
+
+#contrasena{
+    margin-bottom:5px;
+   flex-basis: 400px;
+}
+
+span{
+    display: flex;
+}
+
+
+
+.olvido_contra{
+    display: block;
+    text-align: left;
+    margin-left: 13%;
+    margin-bottom: 40px;
+    font-size: 85%;
+    text-decoration: none;
+    color: black;
+}
+
+.olvido_contra:hover{
+    text-decoration: underline;
+    color: rgb(24, 58, 253);
+    
+}
+
+.boton_ingreso{
+    width: 150px;
+    background: var(--color_fondo);
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.no_registro{
+    text-decoration: none;
+    color: black;
+    font-size: 85%;
+
+}
+
+.no_registro:hover{
+    text-decoration: underline;
+  color: rgb(24, 58, 253);
+}
+
+
