@@ -135,6 +135,11 @@ span{
     color: rgb(255, 255, 255);
 }
 
+.boton_ingreso:hover {
+    background: linear-gradient(to right, rgb(18, 211, 66), rgb(42, 116, 185));
+  }
+
+
 .no_registro{
     text-decoration: none;
     color: black;
