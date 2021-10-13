@@ -1,5 +1,5 @@
 :root{
-    --color_empresa:rgb(40, 166, 204);
+    --color_empresa:#60a0ff;
     --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
 }
 
@@ -123,4 +123,179 @@ a.active,a:hover{
         left: 0;
     }
     
+}
+
+
+
+/* CONTENEDOR COMPLETO */
+
+
+.flex-container{
+    display: flex;
+    width: 90%;
+    max-width: 1300px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 20px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: flex-start ;
+}
+
+
+/* ++++ CONTENEDOR DEL CARD ++++ */
+
+
+.container-card{
+    background: #60a0ff;
+    width: 300px;
+    text-align: center;
+    line-height: 50px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    border-radius: 12px;
+    font-size: large;
+    font-weight: 600;
+    width: 30%;
+    min-width: 304px;
+    height: auto;
+}
+
+
+img{
+    width: 200px;
+}
+
+
+
+/* +++++ CONTENEDOR DE MI INFORMACIÓN +++++*/
+
+
+.container-info{
+    width: 300px;
+    background: #60a0ff;
+    width: calc(67%);   /* !COLOCAR 67% */
+    border-radius: 12px;
+    height: auto;
+    line-height: 50px;
+}
+
+.container-info h2{
+    padding-top: 10px;
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container-info div{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    
+    align-items: center;
+}
+
+.container-info div input{
+    display: inline-block;
+    width: 70%;
+    height: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px rgb(41, 41, 41);
+    color: rgb(0, 0, 0);
+    border-radius: 3px;
+    max-width: 480px;
+    font-size: 16px;
+}
+.container-info div input:focus{
+    outline: none;
+    background-color: #408cff;
+}
+
+.container-info div b{
+    width: 30%;
+}
+
+.contenedor-botones{
+    position: relative;
+    top: 60px;
+    justify-content: space-around;
+    display: flex;
+    
+}
+
+.editar-info, .eliminar-info{
+    height: 30px;
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:952px){
+
+.flex-container{
+    justify-content: center;
+}
+
+
+.container-card{
+    width: 90%;
+}
+
+
+.container-info{
+    width: 100%;
+    height:450px;
+}
+
+
+.container-info div input{
+    font-size: 14px;
+    
+}
+
+
+
+
+
+
 }
