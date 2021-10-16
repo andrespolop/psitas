@@ -1,6 +1,7 @@
 :root{
     --color_empresa:rgb(40, 166, 204);
     --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
+    --color_fondo_hover: linear-gradient(to right, rgb(5, 218, 58),rgb(47, 50, 219));
 }
 
 
@@ -136,7 +137,7 @@ span{
 }
 
 .boton_ingreso:hover {
-    background: linear-gradient(to right, rgb(18, 211, 66), rgb(42, 116, 185));
+    background: var(--color_fondo_hover);
   }
 
 

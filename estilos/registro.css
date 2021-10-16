@@ -5,6 +5,7 @@
     rgb(62, 250, 109),
     rgb(50, 136, 218)
   );
+  --color_fondo_hover: linear-gradient(to right, rgb(5, 218, 58),rgb(47, 50, 219));
 }
 
 * {
@@ -105,7 +106,7 @@ h1 {
 }
 
 .boton_registro:hover {
-  background: linear-gradient(to right, rgb(18, 211, 66), rgb(42, 116, 185));
+  background: var(--color_fondo_hover);
 }
 
 label {

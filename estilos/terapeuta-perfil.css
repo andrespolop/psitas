@@ -1,6 +1,7 @@
 :root{
-    --color_empresa:#60a0ff;
+    --color_empresa:#b5d2ff;;
     --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
+    --color_fondo_hover: linear-gradient(to right, rgb(5, 218, 58),rgb(47, 50, 219));
 }
 
 
@@ -34,6 +35,10 @@ label.logo{
     
     padding: 0 100px;
     font-weight: bold;
+}
+
+label.logo a{
+    color: rgb(255, 255, 255);
 }
 
 
@@ -149,7 +154,7 @@ a.active,a:hover{
 
 
 .container-card{
-    background: #60a0ff;
+    background: var(--color_empresa);
     width: 300px;
     text-align: center;
     line-height: 50px;
@@ -175,7 +180,7 @@ img{
 
 .container-info{
     width: 300px;
-    background: #60a0ff;
+    background:var(--color_empresa);
     width: calc(67%);   /* !COLOCAR 67% */
     border-radius: 12px;
     height: auto;
@@ -211,27 +216,33 @@ img{
 }
 .container-info div input:focus{
     outline: none;
-    background-color: #408cff;
+    background-color: #97b6e0;
 }
 
 .container-info div b{
     width: 30%;
 }
 
-.contenedor-botones{
-    position: relative;
-    top: 60px;
-    justify-content: space-around;
-    display: flex;
-    
-}
 
-.editar-info, .eliminar-info{
+
+.editar-info{
+    float: right;
+    margin-right: 60px;
+    margin-top: 60px;
+    margin-bottom: 40px;
     height: 30px;
-    width: 100px;
+    width: 120px;
+    background: linear-gradient(to right, rgb(37, 241, 88),rgb(82, 85, 243));
+    border: none;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: 550;
+    font-size: 14px;
 }
 
-
+.editar-info:hover{
+    background: var(--color_fondo_hover);
+}
 
 
 
@@ -293,9 +304,15 @@ img{
     
 }
 
-
-
+.editar-info{
+    margin-right: calc(50% - 60px);
+}
 
 
 
 }
+
+
+
+
+    
