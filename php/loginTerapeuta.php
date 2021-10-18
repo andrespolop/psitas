@@ -10,8 +10,8 @@ if(mysqli_connect_errno()){
 //Recuperar variables del formulario
 
 
-$email = $_POST['email'];
-$contrasena = $_POST['contrasena'];
+$email = mysqli_real_escape_string($conectar,$_POST['email']);
+$contrasena = mysqli_real_escape_string($conectar,$_POST['contrasena']);
 
 // Hacemos la sentencia SQL
 
@@ -25,11 +25,11 @@ $ejecutar = mysqli_query($conectar,$sql);
 
 $fila = mysqli_num_rows($ejecutar);
 
-if($fila){
+if($fila>0){
     header("location:../terapeuta-citas.html");
 }else{
     echo"<script> alert('Datos ingresados erróneos');
-    window.location = '/login.html'
+    window.location = '../login.html'
     </script>";
 }
 
