@@ -34,8 +34,6 @@ if (!empty($_POST)) {
 
 
 
-<!-- BORRAR LO DE ARRIBA -->
-
 <!DOCTYPE html>
 <html lang="en">
 
