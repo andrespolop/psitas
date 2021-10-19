@@ -1,39 +1,30 @@
- <?php 
+<?php
 
-$conectar = mysqli_connect("localhost", "root", "","psitas");
-
-if(mysqli_connect_errno()){
-    echo "Fallo al tratar de conectar con base de datos Registro";
-    exit();
-}
-
-//Recuperar variables del formulario
-
-
-$email = mysqli_real_escape_string($conectar,$_POST['email']);
-$contrasena = mysqli_real_escape_string($conectar,$_POST['contrasena']);
+$email = mysqli_real_escape_string($conectar, $_POST['email']);
+$contrasena = mysqli_real_escape_string($conectar, $_POST['contrasena']);
 
 // Hacemos la sentencia SQL
 
-$sql = "SELECT * FROM registro WHERE email = '$email' and contrasena = '$contrasena'";
+$sql = "SELECT id FROM registro WHERE email = '$email' and contrasena = '$contrasena'";
 
 //EJECUTAMOS LA SENTENCIA CON mysql_query
 
-$ejecutar = mysqli_query($conectar,$sql);
+$ejecutar = $conectar->query($sql);
 
 //verificamos la ejecución
 
-$fila = mysqli_num_rows($ejecutar);
+$rows = $ejecutar->num_rows;
 
-if($fila>0){
-    header("location:../terapeuta-citas.html");
-}else{
-    echo"<script> alert('Datos ingresados erróneos');
-    window.location = '../login.html'
+if ($rows > 0) {
+    $row = mysqli_fetch_assoc($ejecutar);
+    session_start();
+    $_SESSION['id_terapeuta'] = $row["id"];
+    header("location: ../terapeuta-perfil.php");
+} else {
+    echo "<script> alert('Datos ingresados erróneos');
+    window.location = '../login.php'
     </script>";
 }
 
-mysqli_free_result($ejecutar);
-mysqli_close($conectar);
-
-?>
+// mysqli_free_result($ejecutar);
+// mysqli_close($conectar);

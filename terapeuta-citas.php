@@ -1,25 +1,30 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type"> 
+    <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos/terapeuta-citas.css">
     <title>Terapeuta-Citas</title>
 </head>
+
 <body>
     <!-- CREAMOS EL NAVBAR DEL APARTADO DE CITAS DEL TERAPEUTA-->
     <nav>
         <input type="checkbox" id="check">
-        <label for="check" class= "checkbtn">
+        <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
         <label class="logo"><a href="index.html">Psitas</a></label>
         <ul>
-            <li><a class="active" href="terapeuta-citas.html">CITAS</a></li>
-            <li><a href="terapeuta-perfil.html">MI PERFIL</a></li>   
+            <li><a class="active" href="terapeuta-citas.php">CITAS</a></li>
+            <li><a href="terapeuta-perfil.php">MI PERFIL</a></li>
+            <li><a href="index.php">SALIR</a></li>
         </ul>
     </nav>
 
@@ -65,4 +70,5 @@
 
 
 </body>
+
 </html>

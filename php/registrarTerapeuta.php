@@ -29,7 +29,6 @@ if(!$ejecutar){
     echo "No se ejecutó";
 }else{
     echo "<script>alert('Registro exitoso');
-    window.location = '../index.html';
+    window.location = '../index.php';
     </script>";
 }
-?>
