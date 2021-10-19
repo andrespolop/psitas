@@ -4,7 +4,7 @@
 
 $conectar = mysqli_connect("localhost","root","","psitas");
 if(mysqli_connect_errno()){
-    echo "Fallo al conectar con Base de Datos";
+    echo "Falló al conectar con Base de Datos";
     exit();
 }
 
