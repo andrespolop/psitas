@@ -13,4 +13,8 @@
     <h1>BIENVENIDOS A PSI-TAS</h1>
 </body>
 
+<button><a href="login.php">Login</a></button>
+<button> <a href="registro.php">Registro</a></button>
+
+
 </html>

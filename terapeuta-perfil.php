@@ -1,7 +1,6 @@
 <?php
 include("php/conexion.php");
 session_start();
-
 session_write_close();
 
 
@@ -48,7 +47,7 @@ $row = $ejecutar->fetch_assoc();
         <ul>
             <li><a href="terapeuta-citas.php">CITAS</a></li>
             <li><a class="active" href="terapeuta-perfil.php">MI PERFIL</a></li>
-            <li><a href="#">salir</a></li>
+            <li><a href="php/salir.php">SALIR</a></li>
         </ul>
 
         <!--Comenzamos a crear el perfil-->

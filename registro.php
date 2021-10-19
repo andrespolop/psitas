@@ -14,7 +14,9 @@
 </head>
 <body>
     <header>
-        <h1 class="titulo_psitas">PSI-TAS</h1>
+    <a href="index.php">
+            <h1 class="titulo_psitas">PSI-TAS</h1>
+        </a>
         <div class="imagen_icono"><img src="/iconos/psi-tas_icon_No-Background.ico" alt="imagen_empresa"></div>
     </header>
 
@@ -34,7 +36,7 @@
             <input class="input_registro" type="password" id="contrasena" name= "contrasena" placeholder="Coloque su contraseña" minlength="8" required>
             
             <label for="telefono">Teléfono</label>
-            <div class="div_telefono"><input class="input_registro" type="text" id="telefono" name= "telefono" placeholder="Coloque su teléfono" required></div>
+            <div class="div_telefono"><input class="input_registro" type="text" maxlength="15" id="telefono" name= "telefono" placeholder="Coloque su teléfono" required/></div>
             
             <a href="login.php" class="ya_registrado">Ya estoy registrado</a>
             <input class="boton_registro" type="submit" value="Registrarse">

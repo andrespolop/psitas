@@ -82,7 +82,7 @@ if (!empty($_POST)) {
             <a href="#" class="olvido_contra">¿Has olvidado tu contraseña?</a>
 
             <input class="boton_ingreso" type="submit" value="Ingresar">
-            <p><a href="registro.html" class="no_registro">No estoy registrado</a></p>
+            <p><a href="registro.php" class="no_registro">No estoy registrado</a></p>
         </form>
 
 

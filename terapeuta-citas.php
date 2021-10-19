@@ -1,4 +1,13 @@
+<?php
+include("php/conexion.php");
+session_start();
+session_write_close();
 
+
+if (!isset($_SESSION['id_terapeuta'])) {
+    header("Location: index.php");
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +29,11 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo"><a href="index.html">Psitas</a></label>
+        <label class="logo"><a href="index.php">Psitas</a></label>
         <ul>
             <li><a class="active" href="terapeuta-citas.php">CITAS</a></li>
             <li><a href="terapeuta-perfil.php">MI PERFIL</a></li>
-            <li><a href="index.php">SALIR</a></li>
+            <li><a href="php/salir.php">SALIR</a></li>
         </ul>
     </nav>
 
