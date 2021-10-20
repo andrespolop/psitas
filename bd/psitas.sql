@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2021 a las 18:52:50
+-- Tiempo de generación: 20-10-2021 a las 19:31:02
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dpsitas`
+-- Base de datos: `psitas`
 --
 
 -- --------------------------------------------------------
@@ -52,9 +52,10 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(50) NOT NULL,
-  `pass_w` varchar(50) NOT NULL,
+  `contrasena` varchar(50) NOT NULL,
   `telefono` int(11) NOT NULL,
   `cedula` int(10) NOT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
   `tipo_u` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -62,11 +63,11 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `pass_w`, `telefono`, `cedula`, `tipo_u`) VALUES
-(1, 'andres', 'polo', 'polo@gmail.com', 'polopolo', 123456789, 1234, 2),
-(2, 'fernando', 'padilla', 'padilla@gmail.com', 'padilla123', 1231342543, 1235, 2),
-(3, 'dario', 'ruiz', 'dario@gmail.com', 'dario123', 1234599929, 1236, 2),
-(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, 3);
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `contrasena`, `telefono`, `cedula`, `direccion`, `tipo_u`) VALUES
+(1, 'andres', 'polo', 'polo@gmail.com', 'polopolo', 123456789, 1234, NULL, 2),
+(2, 'fernando', 'padilla', 'padilla@gmail.com', 'padilla123', 1231342543, 1235, NULL, 2),
+(3, 'dario', 'ruiz', 'dario@gmail.com', 'dario123', 1234599929, 1236, NULL, 2),
+(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, NULL, 3);
 
 --
 -- Índices para tablas volcadas
