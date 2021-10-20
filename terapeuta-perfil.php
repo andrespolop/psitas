@@ -11,7 +11,7 @@ $id_terapeuta = $_SESSION['id_terapeuta'];
 
 
 
-$sql = "SELECT id, nombre, email FROM `registro` WHERE id = '$id_terapeuta'";
+$sql = "SELECT * FROM terapeutas WHERE id = '$id_terapeuta'";
 
 $ejecutar = mysqli_query($conexion, $sql);
 
@@ -54,25 +54,22 @@ $row = $ejecutar->fetch_assoc();
 
         <div class="flex-container">
             <div class="container-card">
-                <img src="/iconos/psi-tas_icon_No-Background - copia.jpg" alt="FOTO">
-                <p> <?php echo utf8_decode($row['nombre']) ?> </p>
-                <p> <?php echo utf8_decode($row['email']) ?> </p>
+                <i class="fas fa-user-tie fa-10x" style="color: rgb(99, 99, 99)"></i>
+                <p> <?php echo $row['nombre'] ?> </p>
+                <p> <?php echo utf8_decode($row['telefono']) ?> </p>
                 <p>Psiquiatra</p>
                 <p>Universidad de Cartagena</p>
             </div>
-            <form class="container-info">
+            <form class="container-info" action="php/modificar-terapeuta.php" method="POST">
                 <h2>MI INFORMACIÓN</h2>
-                <div><b class="nombre">Nombre:</b><input value="Andres Felipe Portillo Portillo" disabled></input></div>
-                <div><b>Cédula:</b><input value="10077xxxx6" disabled></div>
-                <div><b class="email">Email:</b><input value="andrespolop@gmail.com"></input></div>
-                <div><b class="celular">Celular:</b><input value="300xx99xxx"></input></div>
-                <div><b class="direccion">Dirección:</b><input value="Portales de San Fernando"></input></div>
-
-
+                <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                <div><b class="nombre">Nombre:</b><input name="nombre" value="<?php echo $row['nombre']; ?>" disabled></input></div>
+                <div><b>Cédula:</b><input name="cedula" value="<?php echo $row['cedula']; ?>" disabled></div>
+                <div><b class="email">Email:</b><input name="email" value="<?php echo $row['email']; ?>"></input></div>
+                <div><b class="celular">Celular:</b><input name="telefono" value="<?php echo $row['telefono']; ?>" maxlength="15"></input></div>
+                <div><b class="direccion">Dirección:</b><input name="direccion" value="<?php echo $row['direccion']; ?>"></input></div>
+                <?php mysqli_free_result($ejecutar) ?>
                 <input class="editar-info" type="submit" value="Actualizar datos">
-
-
-
             </form>
 
         </div>

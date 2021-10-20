@@ -9,7 +9,7 @@ if (!empty($_POST)) {
 
     // Hacemos la sentencia SQL
 
-    $sql = "SELECT id FROM registro WHERE email = '$email' and contrasena = '$contrasena'";
+    $sql = "SELECT id FROM terapeutas WHERE email = '$email' and contrasena = '$contrasena'";
 
     //EJECUTAMOS LA SENTENCIA CON mysql_query
 
@@ -27,14 +27,12 @@ if (!empty($_POST)) {
     } else {
         echo "<script> alert('Datos ingresados erróneos');
         window.location = 'login.php'
-        </>";
+        </script>";
     }
 }
 ?>
 
 
-
-<!-- BORRAR LO DE ARRIBA -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,11 +59,9 @@ if (!empty($_POST)) {
             <h1 class="titulo_psitas">PSI-TAS</h1>
         </a>
         <a href="index.php">
-            <div class="imagen_icono"><img src="/iconos/psi-tas_icon_No-Background.ico" alt="imagen_empresa"></div>
+            <div class="imagen_icono"><img src="iconos/psitas_icon_NoBackground.jpg" alt="imagen_empresa"></div>
         </a>
     </header>
-
-
 
 
     <div class="container">

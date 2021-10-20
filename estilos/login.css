@@ -1,156 +1,143 @@
-:root{
-    --color_empresa:rgb(40, 166, 204);
-    --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
-    --color_fondo_hover: linear-gradient(to right, rgb(5, 218, 58),rgb(47, 50, 219));
+:root {
+  --color_empresa: rgb(40, 166, 204);
+  --color_fondo: linear-gradient(to right, rgb(62, 250, 109), rgb(96, 98, 236));
+  --color_fondo_hover: linear-gradient(
+    to right,
+    rgb(5, 218, 58),
+    rgb(47, 50, 219)
+  );
 }
-
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-header{
-    padding: 15px;
-    background-color: white;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.075);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a h1{
-    color: black;
+header {
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.075);
 }
 
-
-
-.titulo_psitas{
-    vertical-align:top;
-    display: inline-block;
-    margin-bottom: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+a h1 {
+  color: black;
 }
 
-img{
-    width: 60px;
-    margin-right: 20px;
-   
+.titulo_psitas {
+  vertical-align: top;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.imagen_icono{
-    right:1%;
-    position:absolute;
-    display: inline;
+img {
+  width: 60px;
+  margin-right: 20px;
 }
 
+.imagen_icono {
+  right: 1%;
+  position: absolute;
+  display: inline;
+}
 
 body {
-    background:var(--color_fondo);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.90rem;
-    width: 100%;
-    height: 90vh;
-    background: var(--color_fondo);
-  }
-
-
-.container{
-    border-radius: 6px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-    background-color: rgb(255, 255, 255);
-    margin: auto;
-    margin-top: 60px;
-    text-align: center;
-    width:75%;
-    height: 400px;
-   max-width: 382px;
-   min-width: 300px;
-   
-
-  }
-
-h1{
-    margin-top: 10px;
+  background: var(--color_fondo);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+  height: 90vh;
+  background: var(--color_fondo);
 }
 
-.header_form{
-    padding: 10px;
-    margin-bottom: 25px;
-    font-family: 'Roboto', sans-serif;
-  }
-
-input{
-    display: block;
-    border: none;
-    width: 75%;
-    margin: auto;
-    margin-bottom: 40px;
-    padding: 9px;
-    background: rgb(216, 216, 216);
-    
-
+.container {
+  border-radius: 6px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 60px;
+  text-align: center;
+  width: 75%;
+  height: 400px;
+  max-width: 382px;
+  min-width: 300px;
 }
 
-
-label{
-    margin-top: 10px;
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding-left: 13%;
+h1 {
+  margin-top: 10px;
 }
 
-#contrasena{
-    margin-bottom:5px;
-   flex-basis: 400px;
+.header_form {
+  padding: 10px;
+  margin-bottom: 25px;
+  font-family: "Roboto", sans-serif;
 }
 
-span{
-    display: flex;
+input {
+  display: block;
+  border: none;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 40px;
+  padding: 9px;
+  background: rgb(216, 216, 216);
 }
 
-
-
-.olvido_contra{
-    display: block;
-    text-align: left;
-    margin-left: 13%;
-    margin-bottom: 40px;
-    font-size: 85%;
-    text-decoration: none;
-    color: black;
+label {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding-left: 13%;
 }
 
-.olvido_contra:hover{
-    text-decoration: underline;
-    color: rgb(24, 58, 253);
-    
+#contrasena {
+  margin-bottom: 5px;
+  flex-basis: 400px;
 }
 
-.boton_ingreso{
-    width: 150px;
-    background: var(--color_fondo);
-    border: none;
-    padding: 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    color: rgb(255, 255, 255);
+span {
+  display: flex;
 }
 
-.boton_ingreso:hover {
-    background: var(--color_fondo_hover);
-  }
-
-
-.no_registro{
-    text-decoration: none;
-    color: black;
-    font-size: 85%;
-
+.olvido_contra {
+  display: block;
+  text-align: left;
+  margin-left: 13%;
+  margin-bottom: 40px;
+  font-size: 85%;
+  text-decoration: none;
+  color: black;
 }
 
-.no_registro:hover{
-    text-decoration: underline;
+.olvido_contra:hover {
+  text-decoration: underline;
   color: rgb(24, 58, 253);
 }
 
+.boton_ingreso {
+  width: 150px;
+  background: var(--color_fondo);
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+}
 
+.boton_ingreso:hover {
+  background: var(--color_fondo_hover);
+}
+
+.no_registro {
+  text-decoration: none;
+  color: black;
+  font-size: 85%;
+}
+
+.no_registro:hover {
+  text-decoration: underline;
+  color: rgb(24, 58, 253);
+}
