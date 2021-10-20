@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2021 a las 03:59:53
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 20-10-2021 a las 18:52:50
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,43 +18,72 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `psitas`
+-- Base de datos: `dpsitas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `terapeutas`
+-- Estructura de tabla para la tabla `citas`
 --
 
-CREATE TABLE `terapeutas` (
+CREATE TABLE `citas` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `cedula` varchar(40) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `telefono` varchar(20) NOT NULL,
-  `direccion` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL
+  `terapeuta_id` int(11) NOT NULL,
+  `paciente_id` int(11) NOT NULL,
+  `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `terapeutas`
+-- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `terapeutas` (`id`, `nombre`, `cedula`, `email`, `telefono`, `direccion`, `contrasena`) VALUES
-(1, 'Andres Felipe Polo Portillo', '1007754606', 'andres@gmail.com', '3007031576', 'Dg 32 #80D-87, conjunto residencial Fiorentti, apto 614', '88888888'),
-(2, 'Luis Ángel Polo Portillo', '104556855', 'luis@gmail.com', '100775466600', 'Dg. 36 #93D Portales de San Lopez', '88888888'),
-(3, 'Fernando Padilla', '45112454', 'padilla@gmail.com', '123456789', 'Marbella dg 25 #98 ', '12345678'),
-(4, 'Dario Castaño', '456781554', 'dario@gmail.com', '855544777', 'Carmelo dg 34 #89D-0332', '12345678');
+INSERT INTO `citas` (`id`, `terapeuta_id`, `paciente_id`, `fecha`) VALUES
+(1, 1, 4, '2022-10-25 20:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `pass_w` varchar(50) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `cedula` int(10) NOT NULL,
+  `tipo_u` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `pass_w`, `telefono`, `cedula`, `tipo_u`) VALUES
+(1, 'andres', 'polo', 'polo@gmail.com', 'polopolo', 123456789, 1234, 2),
+(2, 'fernando', 'padilla', 'padilla@gmail.com', 'padilla123', 1231342543, 1235, 2),
+(3, 'dario', 'ruiz', 'dario@gmail.com', 'dario123', 1234599929, 1236, 2),
+(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, 3);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `terapeutas`
+-- Indices de la tabla `citas`
 --
-ALTER TABLE `terapeutas`
+ALTER TABLE `citas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `terapeuta_id` (`terapeuta_id`),
+  ADD KEY `paciente_id` (`paciente_id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62,10 +91,27 @@ ALTER TABLE `terapeutas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `terapeutas`
+-- AUTO_INCREMENT de la tabla `citas`
 --
-ALTER TABLE `terapeutas`
+ALTER TABLE `citas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`terapeuta_id`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `citas_ibfk_2` FOREIGN KEY (`paciente_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
