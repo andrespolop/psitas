@@ -1,0 +1,5 @@
+git pull    /jalar archivos
+git add .   /agregar seguimiento de archivos
+git commit -m "nombre de la actualizacion"  /nombrar seguimiento
+git push     / empujar  subirlos a la nube
+
