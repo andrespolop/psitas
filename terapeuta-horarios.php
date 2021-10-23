@@ -38,7 +38,8 @@
 
             <div class="fecha-estatica">
                     <span>04 de Noviembre de 2021</span>
-            </div>    
+            </div> 
+               
                 <form action="php/php_terapeuta-horarios.php" method="POST" class="horarios">
                     
                         <div class="div-hora">
@@ -51,6 +52,7 @@
                         </div>
                     
                 </form>
+            
                 
                 <form action="php/php_terapeuta-horarios.php" method="POST" class="horarios">
                     
