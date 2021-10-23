@@ -5,13 +5,13 @@ include("conexion.php");
 // Obtención de variables
 
 $id = $_POST['id'];
-$email = $_POST['email'];
+$correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $direccion = $_POST['direccion'];
 
 // Creamos el SQL
 
-$sql = "UPDATE terapeutas SET email = '$email', telefono = '$telefono', direccion = '$direccion' WHERE id = '$id'";
+$sql = "UPDATE usuarios SET correo = '$correo', telefono = '$telefono', direccion = '$direccion' WHERE id = '$id'";
 
 $resultado = mysqli_query($conexion, $sql);
 

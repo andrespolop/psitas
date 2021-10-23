@@ -11,9 +11,9 @@ $id_terapeuta = $_SESSION['id_terapeuta'];
 
 
 
-$sql = "SELECT * FROM terapeutas WHERE id = '$id_terapeuta'";
+$sql = "SELECT * FROM usuarios WHERE id = '$id_terapeuta'";
 
-$ejecutar = mysqli_query($conexion, $sql);
+$ejecutar = $conexion ->query($sql);
 
 $row = $ejecutar->fetch_assoc();
 
@@ -46,6 +46,7 @@ $row = $ejecutar->fetch_assoc();
         <label class="logo"><a href="index.html">Psitas</a></label>
         <ul>
             <li><a href="terapeuta-citas.php">CITAS</a></li>
+            <li><a href="terapeuta-horarios.php">HORARIOS</a></li>
             <li><a class="active" href="terapeuta-perfil.php">MI PERFIL</a></li>
             <li><a href="php/salir.php">SALIR</a></li>
         </ul>
@@ -65,7 +66,7 @@ $row = $ejecutar->fetch_assoc();
                 <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
                 <div><b class="nombre">Nombre:</b><input name="nombre" value="<?php echo $row['nombre']; ?>" disabled></input></div>
                 <div><b>Cédula:</b><input name="cedula" value="<?php echo $row['cedula']; ?>" disabled></div>
-                <div><b class="email">Email:</b><input name="email" value="<?php echo $row['email']; ?>"></input></div>
+                <div><b class="email">Email:</b><input type="email" name="correo" required value="<?php echo $row['correo']; ?>"></input></div>
                 <div><b class="celular">Celular:</b><input name="telefono" value="<?php echo $row['telefono']; ?>" maxlength="15"></input></div>
                 <div><b class="direccion">Dirección:</b><input name="direccion" value="<?php echo $row['direccion']; ?>"></input></div>
                 <?php mysqli_free_result($ejecutar) ?>

@@ -32,6 +32,7 @@ if (!isset($_SESSION['id_terapeuta'])) {
         <label class="logo"><a href="index.php">Psitas</a></label>
         <ul>
             <li><a class="active" href="terapeuta-citas.php">CITAS</a></li>
+            <li><a href="terapeuta-horarios.php">HORARIOS</a></li>
             <li><a href="terapeuta-perfil.php">MI PERFIL</a></li>
             <li><a href="php/salir.php">SALIR</a></li>
         </ul>

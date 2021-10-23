@@ -4,30 +4,46 @@ include("php/conexion.php");
 //LOGIN 
 if (!empty($_POST)) {
 
-    $email = mysqli_real_escape_string($conexion, $_POST['email']);
+    $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
 
     // Hacemos la sentencia SQL
 
-    $sql = "SELECT id FROM terapeutas WHERE email = '$email' and contrasena = '$contrasena'";
+    $sql = "SELECT id, tipo_u FROM usuarios WHERE correo = '$correo' and contrasena = '$contrasena'";
 
     //EJECUTAMOS LA SENTENCIA CON mysql_query
 
     $ejecutar = $conexion->query($sql);
 
+    $ejecutar2 = $conexion ->query($sql);
     //verificamos la ejecución
 
-    $rows = $ejecutar->num_rows;
+    // Verificar tipo de Usuario
+    $tipo_user = $ejecutar2->fetch_assoc();
 
-    if ($rows > 0) {
-        $row = $ejecutar->fetch_assoc();
-        session_start();
-        $_SESSION['id_terapeuta'] = $row["id"];
-        header("Location: terapeuta-perfil.php");
+    // echo $tipo_user['tipo_u'];
+
+    
+
+    $rows = $ejecutar->num_rows;
+    if (isset($tipo_user)) {
+
+        if ($tipo_user["tipo_u"] == 2) {
+            if ($rows > 0) {
+                $row = $ejecutar->fetch_assoc();
+                session_start();
+                $_SESSION['id_terapeuta'] = $row["id"];
+                // echo $_SESSION['id_terapeuta'];
+            
+            
+                header("Location: terapeuta-perfil.php");
+            
+            }
+        }
     } else {
         echo "<script> alert('Datos ingresados erróneos');
-        window.location = 'login.php'
-        </script>";
+            window.location = 'login.php'
+            </script>";
     }
 }
 ?>
@@ -70,7 +86,7 @@ if (!empty($_POST)) {
         </div>
         <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST">
             <label for="correo">Correo</label>
-            <input type="email" name="email" placeholder="Ingrese su correo" id="correo">
+            <input type="email" name="correo" placeholder="Ingrese su correo" id="correo">
 
             <label for="contrasena">Contraseña</label>
             <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña">

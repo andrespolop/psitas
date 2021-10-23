@@ -18,7 +18,7 @@ $telefono = $_POST['telefono'];
 
 // Creamos la sentencia SQL
 
-$sql = "INSERT INTO registro (nombre, apellido, email, contrasena, telefono) values('$nombre','$apellido','$email','$contrasena','$telefono')";
+$sql = "INSERT INTO usuario (nombre, apellido, email, contrasena, telefono) values('$nombre','$apellido','$email','$contrasena','$telefono')";
 
 //Ejecutar la sentencia SQL
 $ejecutar = mysqli_query($conectar,$sql);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilo2.css">
 </head>
 
 <body>
-    <h1>BIENVENIDOS A PSI-TAS</h1>
+<div class="caja">
+
+<center> <marquee style='width: 100%; color: blue;'><b>BIENVENIDOS A PSI-TAS</b></marquee> </center>
+ <br>
+<center>
+<a class="btn" href="login.php">Login</a>
+<a class="btn" href="registro.php">Registro</a>
+</center>
+</div>
+
 </body>
-
-<button><a href="login.php">Login</a></button>
-<button> <a href="registro.php">Registro</a></button>
-
-
 </html>
