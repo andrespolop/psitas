@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
+    <script src="src/terapeuta-horarios.js" defer></script>
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
+    
+    
     <link rel="stylesheet" href="estilos/terapeuta-horarios.css">
     <title>Terapeuta-Citas</title>
 </head>
@@ -37,16 +40,10 @@
         <div class="contenedor-horarios">
 
 
-        <select name="" id="">
-            <option value="nada" selected>Seleccione una fecha para filtrar</option>
-            <option value="nad3433">04 del mes 11 del 2021</option>
-            <option value="fecha234343">07 de Noviembre del 2021</option>
-            <option value="fecha343">06 de Noviembre del 2021</option>
-            
-        </select>
+        
 
             <div class="fecha-estatica">
-                    <span>04 de Noviembre de 2021</span>
+                    <span id="pruebaa"></span>
             </div> 
                
                 <form action="php/php_terapeuta-horarios.php" method="POST" class="horarios">
@@ -267,7 +264,7 @@
 <br><br>
 
 
-           <!-- ++++++++ TERCER DÍA DE LOS DISPONIBLES +++++++ -->
+           <!-- ++++++++ TERCER DÍA DE LOS HORARIOS +++++++ -->
 
            <div class="fecha-estatica">
                     <span>06 de Noviembre de 2021</span>
@@ -378,7 +375,7 @@
 
         <br><br>
 
-
+        
         </div>
 
 
@@ -426,7 +423,7 @@
 
 
 
-
+    
 </body>
 
 </html>

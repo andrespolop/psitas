@@ -170,6 +170,8 @@ z
   background: rgb(158, 158, 158);
   border-radius: 2%;
   min-width: 307px;
+  height: 600px;
+  overflow-y: scroll;
 }
 
 
@@ -181,7 +183,7 @@ z
   height: 30px;
   line-height: 30px;
   background: #3EF86E;
-  border-radius: 5px;
+ 
   border-bottom: solid 0.5px rgb(150, 150, 150);
 }
 
@@ -224,6 +226,7 @@ z
   text-align: center;
   font-size: 15px;
 }
+
 
 
 /* LETRAS ACTIVAR */

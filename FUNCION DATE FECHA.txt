@@ -32,6 +32,9 @@
                     
                 </form>
                 <script>
+                
+    
+
     let hoy = new Date();
     let fecha = hoy.getFullYear()+'-'+(hoy.getMonth()+1)+'-'+(hoy.getDate()+1);
 
