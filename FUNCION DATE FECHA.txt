@@ -40,3 +40,23 @@
     </script>  
 
     <!-- dsdd -->
+
+
+
+
+
+
+    ELEMENTO . HIDDEN
+
+
+
+    if ($fila > 0) {
+    echo "<script> 
+    document.getElementById("$idh1").hidden = true;
+    
+    </script>"
+}else {
+    $ejecutarh2 = $conexion -> query("$sqlh1envio");
+    echo = "<script> document.getElementById("$idh1").hidden = false;
+    </script>"
+}

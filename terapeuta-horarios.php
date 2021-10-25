@@ -36,6 +36,15 @@
 
         <div class="contenedor-horarios">
 
+
+        <select name="" id="">
+            <option value="nada" selected>Seleccione una fecha para filtrar</option>
+            <option value="nad3433">04 del mes 11 del 2021</option>
+            <option value="fecha234343">07 de Noviembre del 2021</option>
+            <option value="fecha343">06 de Noviembre del 2021</option>
+            
+        </select>
+
             <div class="fecha-estatica">
                     <span>04 de Noviembre de 2021</span>
             </div> 

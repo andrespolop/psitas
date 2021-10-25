@@ -28,7 +28,7 @@
         <div class="header_form">
             <h1>Registrarse</h1>
         </div>
-        <form action="php/registrarTerapeuta.php" method="POST">
+        <form action="php/registrarUsuario.php" method="POST">
             <label for="nombre">Nombre</label>
             <input class="input_registro" type="text" id="nombre" name="nombre" placeholder="Nombres" required>
 
