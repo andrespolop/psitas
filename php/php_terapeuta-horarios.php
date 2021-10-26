@@ -1,63 +1,53 @@
 <?php
 
 include("conexion.php");
-// FECHA 1
-$indice = 0;
-for ($i=0; $i < 7; $i++) { 
-   for ($j=0; $j < 8; $j++) { 
-      $indice++;
-      if (isset($_POST["id".$indice]) and isset($_POST["id_terapeuta"]) and isset($_POST["fecha".$indice]) and isset($_POST["hora".$indice])) {
-         
-         $id = $_POST["id".$indice];
-         $fecha = $_POST["fecha".$indice];
-         $hora = $_POST["hora".$indice];
-         $id_terapeuta = $_POST["id_terapeuta"];
 
 
-         $sql_comprobacion = "SELECT * FROM horarios_disponibles WHERE id = '$id' and id_terapeuta = '$id_terapeuta'";
-         $result = $conexion ->query($sql_comprobacion);
-         $filas = mysqli_num_rows($result); 
-        
-         $sql = "INSERT INTO horarios_disponibles(id, fecha, hora, id_terapeuta)
-          values ('$id', '$fecha', '$hora', '$id_terapeuta')";
-         
-        
-         if ($filas>0) {
+$array_query = array();
 
-            echo "<script>
-               alert('Lo siento, ya tienes un registro con este horario')
-               </script>
-               ";
-            header("Location:../terapeuta-horarios.php");            
-         }else{
-            $ejecutar = $conexion ->query($sql);
-            if (!$ejecutar) {
-               echo "Error al ejecutar el SQL";
-            }else {
-               echo "<script>
-               alert('Horario registrado correctamente')
-               </script>
-               ";
-            }
-         }
+$sql_recibe = "SELECT * FROM horarios_disponibles";
+$resultado = mysqli_query($conexion, $sql_recibe);
 
 
-   }
-
-
-   }
+while ($row = $resultado ->fetch_array()) { 
+   $id = $row['id'];
+   $id_terapeuta = $row['id_terapeuta'];
+   $array_query[] = array('id'=> $id, 'id_terapeuta'=>$id_terapeuta);    
 }
 
+$nuevo = json_encode($array_query);
+
+echo "
+   <script>
+   console.log($nuevo);
+   </script>
+";
 
 
 
+// $json_resultado['horarios_disponibles'] = $array_col;
+
+// echo json_encode($resultado);
 
 
 
+// $nuevo = json_encode($json_array);
+
+// echo "
+//    <script>
+//    console.log($nuevo);
+//    </script>
+// ";
+
+//  echo json_encode($json_array);
+
+// echo '<pre>';
+// print_r($json_array);
+// echo '</pre>'
 
 
-
-
+// echo $id; echo " - ";
+// echo $id_terapeuta;echo "</br>";
 
 
 
