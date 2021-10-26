@@ -10,7 +10,7 @@ $id1= $_GET["id"]
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>ADMINISTRADOR</title>
-	<link rel="stylesheet" href="estilo2.css">
+	<link rel="stylesheet" href="estilos/estilo2.css">
 	<link rel="stylesheet" href="font-awesome.css">
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -36,8 +36,8 @@ $id1= $_GET["id"]
 					
 
 </div>
-<center><a href="index.php" class="btn">volver</a></center>
-<marquee style='width: 100%; color: blue;'><b>Whee!</b></marquee>
+<center><a href="admin.php" class="btn">volver</a></center>
+
 
 
 </div>
