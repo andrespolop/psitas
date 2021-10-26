@@ -22,7 +22,6 @@ if (!empty($_POST)) {
     $tipo_user = $ejecutar2->fetch_assoc();
 
     // echo $tipo_user['tipo_u'];
-
     
 
     $rows = $ejecutar->num_rows;
@@ -37,6 +36,16 @@ if (!empty($_POST)) {
             
             
                 header("Location: terapeuta-perfil.php");
+            
+            }
+        }
+        else if ($tipo_user["tipo_u"] == 1) {
+            if ($rows > 0) {
+                $row = $ejecutar->fetch_assoc();
+                session_start();
+                $_SESSION['id_paciente'] = $row["id"];                
+            
+                header("Location: paciente-perfil.php");
             
             }
         }
