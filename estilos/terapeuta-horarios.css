@@ -203,6 +203,7 @@ z
   border-radius: 5px;
   height: 30px;
   line-height: 30px;
+  margin-bottom: 25px;
 }
 
 .div-hora{
@@ -227,6 +228,9 @@ z
   font-size: 15px;
 }
 
+.hora:focus{
+ outline: none;
+}
 
 
 /* LETRAS ACTIVAR */
