@@ -1,8 +1,4 @@
 
-
-//  <div class="fecha-estatica">
-//  <span id="pruebaa"></span>
-// </div> 
 var indice = 0;
 
 
@@ -40,7 +36,7 @@ for (let i = 0; i < 7; i++) {
 
     p_fecha.setDate(p_fecha.getDate()+c);
    var mostrarfecha = p_fecha.getFullYear() + '-' + (p_fecha.getMonth()+1) + '-' + p_fecha.getDate();
-    console.log(mostrarfecha);
+    
 
 
     const div_fecha = document.createElement("div");
@@ -55,7 +51,7 @@ for (let i = 0; i < 7; i++) {
     for (let j = 0; j < horas.length; j++) {
         
         indice++;
-        console.log(indice);
+        
        
         const form = document.createElement("form");
         const div_hora = document.createElement("div");
@@ -70,9 +66,10 @@ for (let i = 0; i < 7; i++) {
         const btext = "Activar";
 
         // Atributos forms
-        form.setAttribute("action", "php/php_terapeuta-horarios.php");
+        form.setAttribute("action", "terapeuta-horarios.php");
         form.setAttribute("method", "POST");
         form.setAttribute("class", "horarios");
+        form.setAttribute("id", "formh"+indice);
         // Atributos div-hora
         div_hora.setAttribute("class", "div-hora");
         //Atributos input-id
@@ -126,12 +123,3 @@ for (let i = 0; i < 7; i++) {
     c=1;
 }
 
-
-console.log(id_terapeuta);
-
-// for (let i = 0; i < 5; i++) {
-//     for (let j = 0; j < 3; j++) {
-//         indice++;
-//         console.log(indice);
-//     }
-// }
