@@ -44,7 +44,7 @@ function horasEnDia(x) {
     for (let index = 0; index < objectJ.length; index++) {
         if (objectJ[index].dia == x) {
             arr.push(objectJ[index]);
-        }       
+        }
     }
     return arr;
 }
@@ -70,8 +70,12 @@ xhr.onload = function () {
                 document.getElementById(fechaI).innerHTML = diaCorrecto(i);
                 var arr = horasEnDia(diaCorrectoSoloNumero(i));
                 for (let j = 0; j < arr.length; j++) {
-                    
-                    
+                    const form = document.createElement("form");
+                    form.setAttribute("class", "horarios");
+                    const div_hora = document.createElement("div");
+                    div_hora.setAttribute("class", "div-hora");
+                    form.appendChild(div_hora);
+                    document.getElementsByClassName("contenedor-horarios")[0].appendChild(form)
                 }
             }
 

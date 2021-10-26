@@ -1,3 +1,24 @@
+<?php
+include("php/conexion.php");
+session_start();
+session_write_close();
+
+
+if (!isset($_SESSION['id_paciente'])) {
+    header("Location: index.php");
+}
+$id_paciente = $_SESSION['id_paciente'];
+
+
+
+$sql = "SELECT * FROM usuarios WHERE id = '$id_paciente'";
+
+$ejecutar = $conexion ->query($sql);
+
+$row = $ejecutar->fetch_assoc();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
