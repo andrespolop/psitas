@@ -1,4 +1,11 @@
 
+var horas = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'];
+
+
+var indice = 0;
+
+for (let i = 1; i <= (56); i++) {
+
 
 const form = document.createElement("form");
 const div_hora = document.createElement("div");
@@ -19,8 +26,8 @@ form.setAttribute("class", "horarios");
 div_hora.setAttribute("class", "div-hora");
 //Atributos input-id
 input_id.setAttribute("type", "hidden");
-input_id.setAttribute("value", "h"+"1");
-input_id.setAttribute("name", "id"+"1");
+input_id.setAttribute("value", "h"+i);
+input_id.setAttribute("name", "id"+i);
 //Atributos de Input-fecha
 input_fecha.setAttribute("type", "hidden");
 input_fecha.setAttribute("value", "2021-11-04");
@@ -57,23 +64,18 @@ div_hora.appendChild(input_submit);
 div_hora.appendChild(label_boton_activar);
 form.appendChild(div_hora);
 document.getElementsByClassName("contenedor-horarios")[0].appendChild(form);
+    
 
 
-//         <div class="fecha-estatica">
-//                 <span id="pruebaa"></span>
-//         </div> 
-           
-//             <form action="php/php_terapeuta-horarios.php" method="POST" class="horarios">
-                
-//                     <div class="div-hora">
-//                         <input type="hidden" value="h1" name="id1">
-//                         <input type="hidden" value="2021-11-04" name="fecha1">    
-//                         <input class="hora" type="text" disabled value="07:00" name="hora1">
-//                         <label for="btn-activar"><b class="b_activar">Activar</b><i class="fas fa-check-circle" style="color: #00a030;"></i></label>
-                        
-//                         <input type="submit" value="Activar" hidden id="btn-activar" >
-//                     </div>
-                
-//             </form>
-//     </div>            
-// </div>
+}
+
+
+
+for (let i = 0; i <5; i++) {
+
+    for (let j = 0; j < 3; j++) {
+        indice++;
+        console.log(indice);
+    }
+    
+}
