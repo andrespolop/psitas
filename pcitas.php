@@ -35,7 +35,7 @@ $id2= $_GET["id"]
 					
 
 </div>	
-<center><a href="index.php" class="btn">volver</a></center>
+<center><a href="admin.php" class="btn">volver</a></center>
 </div>	
 			
 		

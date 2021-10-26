@@ -36,8 +36,8 @@ $id1= $_GET["id"]
 					
 
 </div>
-<center><a href="index.php" class="btn">volver</a></center>
-<marquee style='width: 100%; color: blue;'><b>Whee!</b></marquee>
+<center><a href="admin.php" class="btn">volver</a></center>
+
 
 
 </div>

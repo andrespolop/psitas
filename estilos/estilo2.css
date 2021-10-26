@@ -109,6 +109,14 @@ padding: 5px 10px;
 border-radius: 4px;
 cursor: pointer;
 color: black;
+}
+.btne {
+background-color: rgb(173, 172, 172);
+text-decoration: none;
+padding: 5px 10px;
+border-radius: 4px;
+cursor: pointer;
+color: black;
 
 }
 .caja {
@@ -118,6 +126,39 @@ box-shadow: 0 0 20px #333;
 margin: 30px auto;
 padding: 30px;
 
+}
+.caja2 {
+	width: 45%;
+	background-color: #fff;
+	box-shadow: 0 0 20px #333;
+	margin: 30px auto;
+	padding: 30px;
+	
+	}
+.flabel {
+	padding: 5px 10px;
+	margin: 5px auto;
+	display: flex ;
+	flex-wrap: wrap;
+
+}
+.flabe2 {
+	padding: 5px 10px;
+	margin: 5px auto;
+	display: flex ;
+	flex-wrap: wrap;
+	width: 20%;
+	
+	
+}
+.finput {
+	padding: 5px 10px;
+	margin: 5px auto;
+	display: flex ;
+	flex-wrap: wrap;
+	width: 60%;
+	
+	
 }
 
 /*-----------*/
