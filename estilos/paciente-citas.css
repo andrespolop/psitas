@@ -1,0 +1,252 @@
+:root {
+    --color_empresa: #b5d2ff;
+    --color_fondo: linear-gradient(to right, rgb(62, 250, 109), rgb(96, 98, 236));
+    --color_fondo_hover: linear-gradient(
+      to right,
+      rgb(5, 218, 58),
+      rgb(47, 50, 219)
+    );
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: rgba(238, 238, 238, 0.226);
+  }
+  
+  /* Estilos del navbar */
+  
+  nav {
+    background: var(--color_fondo);
+    height: 80px;
+    width: 100%;
+  }
+  
+  label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+  
+    padding: 0 100px;
+    font-weight: bold;
+  }
+  
+  label.logo a {
+    color: rgb(255, 255, 255);
+  }
+  
+  nav ul {
+    float: right;
+    margin-right: 20px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 7px;
+  }
+  
+  nav ul li a {
+    color: rgb(17, 17, 17);
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  
+  a.active,
+  a:hover {
+    background: #1bffbb;
+    transition: 0.5s;
+  }
+  
+  .checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #check {
+    display: none;
+  }
+  
+  /*Para que se haga responsive el navbar */
+  
+  @media (max-width: 952px) {
+    label.logo {
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 858px) {
+    .checkbtn {
+      display: block;
+    }
+    ul {
+      position: fixed;
+      /* TAMAÑO DEL NAVBAR RESPONSIVE*/
+      width: 100%;
+      height: 100vh;
+      background: #eeeeee;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all 0.5s;
+    }
+    nav ul li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a {
+      font-size: 20px;
+    }
+    a:hover,
+    a.active {
+      background: none;
+      color: #00c98c;
+    }
+    #check:checked ~ ul {
+      left: 0;
+    }
+  }
+  
+  
+  /* dfn
+  dfd
+  ef
+  fffd
+  z
+  z
+  z
+  z
+  z
+  ñ */
+  
+  
+  
+  
+  /* ESTILOS DEL BODY Y CITAS */
+  
+  
+  
+  
+  /* contenedor completo*/
+  .contenedor {
+    margin: auto;
+    margin-top: 40px;
+    width: 90%;
+    background: rgb(255, 255, 255);
+    border-radius: 2%;
+   height: 100%;
+    
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  
+  /* CONTENEDOR DE LOS HORARIOS EN ESPERA */
+  .contenedor-horarios {
+    width: 100%;
+    margin-bottom: 30px;
+    background: rgb(158, 158, 158);
+    border-radius: 2%;
+    min-width: 307px;
+  }  
+  
+  
+  
+  /* CONTENEDOR DE FECHA ESTÁTICA */
+   .fecha-estatica {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #3EF86E;
+    border-radius: 5px;
+    border-bottom: solid 0.5px rgb(150, 150, 150);
+  }
+  
+  
+  /* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
+  .fecha-estatica span{ 
+    font-weight: 600;
+  }
+  
+  
+  /* LOS CONTENEDORES DE LA HORA Y EL BOTÓN ACTIVAR */
+  .horarios {
+    margin: auto;
+    margin-top: 20px;
+    background-color: #cecece;
+    width: 90%;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+  }
+  
+  .div-hora{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  
+  /* TEXTO DE LA HORA */
+  .hora {
+    width:75px;
+    color: black;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    margin-left:10px;
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  
+  /* LETRAS ACTIVAR */
+  .b_activar{
+    margin-right: 5px;
+    color: #00a030;
+    cursor: pointer;
+  }
+  
+  .b_activar:hover{
+      color: #00661f;
+      text-decoration: underline;
+  }
+  
+  
+  /* ICONO DE ACTIVAR */
+  .fa-check-circle{
+  margin-right: 10px;
+  
+  }
+  
+
+  
+  
+  
+  
+  
