@@ -113,7 +113,8 @@ for ($i=0; $i < 7; $i++) {
     <!-- CREAMOS LOS HORARIOS DE ATENCIÓN DISPONIBLES EN EL SISTEMA -->
 
 <input type="hidden" id="id_terapeuta" value="<?php echo $row["id"]; ?>">
-    <!-- PRIMERO +++++++++++++++ -->
+<input type="hidden"id="nombre_terapeuta" value = "<?php echo $row["nombre"]?>">   
+<!-- PRIMERO +++++++++++++++ -->
     <div class="contenedor">
 
         <div class="contenedor-horarios">
