@@ -11,14 +11,14 @@ xhr.onload = () => {
     horarios_disponibles = JSON.parse(xhr.responseText);
 
     var horas = [
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
     ];
 
     function diaCorrecto(x) {
@@ -96,17 +96,44 @@ xhr.onload = () => {
       for (let j = 0; j < horas.length; j++) {
         indice++;
 
+        var hora_real_h;
+    
+        var hora_muestra_h;
+        hora_real_h = horas[j];
+        console.log(hora_real_h);
+            if (hora_real_h<10) {
+                hora_muestra_h = "0"+hora_real_h+":00 AM";
+            }if (hora_real_h>9 && hora_real_h<12) {
+                hora_muestra_h = hora_real_h+":00 AM";
+            }if (hora_real_h == 12) {
+                hora_muestra_h = hora_real_h+":00 PM";
+            }if (hora_real_h>12) {
+                hora_muestra_h = "0"+(hora_real_h-12)+":00 PM";
+            }
+        //     if ((hora_real_h>9) && (hora_real_h<12)) {
+        //         hora_muestra_h = (hora_real_h)+":00 AM";
+        //         console.log(hora_muestra_h);
+        //     }if (hora_real_h<10) {
+        //         hora_muestra_h = ()
+        //     }
+
+
+
+
+
         const form = document.createElement("form");
         const div_hora = document.createElement("div");
         const input_id = document.createElement("input");
         const input_fecha = document.createElement("input");
-        const input_hora = document.createElement("input");
+        const input_hora_muestra = document.createElement("input");
         const in_id_terapeuta = document.createElement("input");
         const label_boton_activar = document.createElement("label");
         const input_submit = document.createElement("input");
         const b = document.createElement("b");
         const icono = document.createElement("i");
         const btext = "Activar";
+        const input_hora = document.createElement("input");
+
 
         // Atributos div-hora
         div_hora.setAttribute("class", "div-hora");
@@ -138,12 +165,18 @@ xhr.onload = () => {
         input_fecha.setAttribute("type", "hidden");
         input_fecha.setAttribute("value", mostrarfecha);
         input_fecha.setAttribute("name", "fecha" + indice);
-        //Atributos de input-hora
-        input_hora.setAttribute("class", "hora");
-        input_hora.setAttribute("type", "text");
-        input_hora.setAttribute("readonly", "");
+        //Atributos de input-hora-muestra
+        input_hora_muestra.setAttribute("class", "hora");
+        input_hora_muestra.setAttribute("type", "text");
+        input_hora_muestra.setAttribute("readonly", "");
+        input_hora_muestra.setAttribute("value", hora_muestra_h);
+        
+        
+        // ATRIBUTOS INNPUT_HORA
+        input_hora.setAttribute("type", "hidden");
         input_hora.setAttribute("value", horas[j]);
         input_hora.setAttribute("name", "hora" + indice);
+
         //Atributps de label
         label_boton_activar.setAttribute("for", "btn-activar" + indice);
         //atributos del B
@@ -165,6 +198,7 @@ xhr.onload = () => {
         div_hora.appendChild(input_fecha);
         div_hora.appendChild(in_id_terapeuta);
         div_hora.appendChild(input_hora);
+        div_hora.appendChild(input_hora_muestra);
         div_hora.appendChild(input_submit);
         div_hora.appendChild(label_boton_activar);
         form.appendChild(div_hora);
@@ -193,28 +227,36 @@ xhr_dispo.open("GET", "php/php_terapeuta-horarios-disponibles.php");
 xhr_dispo.onload = function () {
   if (xhr_dispo.status == 200) {
     horarios_dispo_des = JSON.parse(xhr_dispo.responseText);
-    var hora_se
-    var min_se
-    var hora_new;
-    var min_new;
+    var hora_real;
+    
+    var hora_muestra;
+    
     for (let i = 0; i < horarios_dispo_des.length; i++) {
         //Separador de fechas - horas
       if (horarios_dispo_des[i]["id_terapeuta"] == document.getElementById("id_terapeuta").value) {
-        let horayminuto = horarios_dispo_des[i]["hora"].split(':');
-        hora_se = parseInt(horayminuto[0]);
-        min_se= parseInt(horayminuto[1]);
-        
-        
-        if (hora_se<10) {
-            hora_new = "0"+hora_se;
-            min_new = "0"+min_se;
-        } else{
-            hora_new = hora_se;
-            min_new = "0"+min_se;
+        hora_real = horarios_dispo_des[i]["hora"];
+        if (hora_real>12) {
+            hora_muestra = "0"+(hora_real-12)+":00 PM";
+            console.log(hora_muestra);
+        } else {
+            hora_muestra = "0"+hora_real+":00 AM";
         }
+        
+        // let horayminuto = horarios_dispo_des[i]["hora"].split(':');
+        // hora_se = parseInt(horayminuto[0]);
+        // min_se= parseInt(horayminuto[1]);
+        
+        
+        // if (hora_se<10) {
+        //     hora_new = "0"+hora_se;
+        //     min_new = "0"+min_se;
+        // } else{
+        //     hora_new = hora_se;
+        //     min_new = "0"+min_se;
+        // }
 
-    console.log(horayminuto);
-console.log(hora_new+":"+min_new);
+//     console.log(horarios_dispo_des[0]["hora"]);
+// console.log(hora_new+":"+min_new);
 
         cont_eliminar++;
         var form_d = document.createElement("form");
@@ -249,7 +291,7 @@ console.log(hora_new+":"+min_new);
         input_hora_d.setAttribute("class", "hora-disponible");
         input_hora_d.setAttribute("type", "text");
         input_hora_d.setAttribute("readonly", "");
-        input_hora_d.setAttribute("value", hora_new+":"+min_new);
+        input_hora_d.setAttribute("value", hora_muestra);
         //Atributos input_nombre_t
         input_nombre_t.setAttribute("type", "text");
         input_nombre_t.setAttribute("class", "nombre_terapeuta");
