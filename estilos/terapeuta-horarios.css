@@ -167,7 +167,7 @@ z
 .contenedor-horarios {
   width: 30%;
   margin-bottom: 30px;
-  background: rgb(158, 158, 158);
+  background: rgb(161, 161, 161);
   border-radius: 2%;
   min-width: 307px;
   height: 600px;
@@ -266,6 +266,8 @@ margin-right: 10px;
   background: rgb(161, 161, 161);
   border-radius: 2%;
   margin-bottom: 30px;
+  overflow-y: scroll;
+  height: 600px;
 }
 
 /*DIV fecha*/
@@ -276,7 +278,9 @@ margin-right: 10px;
     height: 30px;
     line-height: 30px;
     border-radius: 5px;
-    border-bottom: solid 0.5px #2f3eb3;
+    border-bottom: solid 2px #2f3eb3;
+    position: sticky;
+    top: 0px;
     
   }
 
@@ -306,6 +310,10 @@ margin-right: 10px;
   margin-left:10px;
   text-align: center;
   font-size: 15px;
+}
+
+.hora-disponible:focus{
+  outline: none;
 }
 
 .nombre_terapeuta{
