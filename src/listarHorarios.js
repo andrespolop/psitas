@@ -30,7 +30,7 @@ function diaCorrectoSoloNumero(x) {//para tener solo el numero del día, porque 
 function validacionDias(x) {//validamos los días
     var arr = [];
     for (let it = 0; it < objectJ.length; it++) {
-        arr.push(objectJ[it].dia);
+        arr.push(splitFecha(objectJ[it].fecha));//cambiaremos objectJ[it].dia por el splitFecha 
     }
     function equalsTo(y) {
         return y == x;
@@ -42,7 +42,7 @@ function validacionDias(x) {//validamos los días
 function horasEnDia(x) {
     var arr = [];
     for (let index = 0; index < objectJ.length; index++) {
-        if (objectJ[index].dia == x) {
+        if (splitFecha(objectJ[index].fecha) == x) {//splitFecha(objectJ[index].fecha) == x
             arr.push(objectJ[index]);
         }
     }
@@ -57,13 +57,28 @@ function horaCorrecta(x) {
         return x +":00"+" AM";
     }
 }
-//validamos checkboxes
+//validamos checkboxes TERMINAR
+var counter = 0;//contador para cantidad de checkboxes
 function validarChck(){
-    var valid = false;
-    if (document.getElementsByClassName){
-
+    var valid = 0;
+    for (let i = 0; i < counter; i++) {
+        if (document.getElementById("check"+i).checked) {            
+            console.log("check"+i);
+            valid = 1;
+        }        
     }
-
+    if (valid == 1) {
+        return true;
+    } else if(valid == 0) {
+        alert("No se ha escogido ninguna cita.");
+        return false;
+    }
+}
+//función split
+function splitFecha(x) {// x debe ser igual a fecha, y igual a 1 para mes, 2 para dia, recibe un string 
+    let nums = x.split('-')
+    let num = nums[2];
+    return num;   
 }
 
 //JSON manipulación
@@ -75,7 +90,7 @@ xhr.onload = function () {
 
         objectJ = JSON.parse(xhr.responseText);
         //Creación de horarios dinámicos        
-        var counter = 0;
+        
         var existeCounter = 0;
         for (let i = 0; i < 7; i++) {
             if (validacionDias(diaCorrectoSoloNumero(i))) {
@@ -91,28 +106,27 @@ xhr.onload = function () {
                 var arr = horasEnDia(diaCorrectoSoloNumero(i));
                 
                 for (let j = 0; j < arr.length; j++) {
-                    counter++;//el contador de las citas comienza a sumar
                     const form = document.createElement("form");//el formulario
                     form.setAttribute("class", "form-cita");
                     const div_cita = document.createElement("div");//div máscara del formulario
                     div_cita.setAttribute("class","div-cita");
                     const div_hora = document.createElement("div");//el div de la hora
                     div_hora.setAttribute("class", "div-hora");
-                    const txt_div_hora = document.createTextNode(horaCorrecta(arr[j].hora));//texto que va en el div hora
+                    const txt_div_hora = document.createTextNode(horaCorrecta(arr[j].hora));//texto que va en el div hora POTENTIALLY CHANGED
                     const div_terapeuta = document.createElement("div");//div del nombre del terapeuta
                     div_terapeuta.setAttribute("class","div-terapeuta");
-                    const txt_div_terapeuta = document.createTextNode("lorem ipsum");//texto que va en el div del terapeuta
+                    const txt_div_terapeuta = document.createTextNode(arr[j].nombre+" "+arr[j].apellido);//texto que va en el div del terapeuta
                     const div_telefono = document.createElement("div");//div del telefono celular
                     div_telefono.setAttribute("class","div-telefono");
-                    const txt_div_telefono = document.createTextNode("3212085616");//texto del celular
+                    const txt_div_telefono = document.createTextNode(arr[j].telefono);//texto del celular
                     const div_mail = document.createElement("div");//div del email
                     div_mail.setAttribute("class","div-mail");
-                    const txt_div_mail = document.createTextNode("lorem@gmail.com");//texto del mail
+                    const txt_div_mail = document.createTextNode(arr[j].correo);//texto del mail
                     const div_check = document.createElement("div");//div del checkbox
                     div_check.setAttribute("class","div-check");
                     const input_check = document.createElement("input");//input del checkbox    
                     input_check.setAttribute("type","checkbox");                    
-                    input_check.setAttribute("value","none");                
+                    input_check.setAttribute("value",arr[j].id_horarios);//value = id de la cita                
                     input_check.setAttribute("id","check"+counter);
                     input_check.setAttribute("name","check"+counter);
                     const label_check = document.createElement("label");//label del checkbox
@@ -134,6 +148,8 @@ xhr.onload = function () {
                     div_cita.appendChild(div_hora);
                     form.appendChild(div_cita);
                     document.getElementsByClassName("contenedor-horarios")[0].appendChild(form)
+
+                    counter++;//el contador de las citas comienza a sumar
                 }
             }
 
@@ -144,6 +160,18 @@ xhr.onload = function () {
             div_existe.setAttribute("class","div-existe");
             div_existe.appendChild(txt_no_existe);
             document.getElementsByClassName("contenedor-horarios")[0].appendChild(div_existe);
+        }else{//botón que valida los checkboxes
+            const btn = document.createElement("button");//boton agendar
+            btn.setAttribute("class","boton-aceptar");
+            btn.setAttribute("onclick","validarChck()");
+            const txt_btn = document.createTextNode("Agendar");//texto del boton
+            const ico = document.createElement("i");//icono del checkmark
+            ico.setAttribute("class", "fas fa-check-circle");
+            
+            
+            btn.appendChild(txt_btn);
+            btn.appendChild(ico);
+            document.getElementsByClassName("contenedor")[0].appendChild(btn);
         }
         return objectJ;//variable que se va a usar para manipular la base de datos desde js
     } else {

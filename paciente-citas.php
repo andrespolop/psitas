@@ -17,6 +17,7 @@ $ejecutar = $conexion ->query($sql);
 
 $row = $ejecutar->fetch_assoc();
 
+/*ENVIO A LA BD DE LAS CITAS AGENDADAS*/ 
 
 ?>
 <!DOCTYPE html>

@@ -154,19 +154,18 @@
     width: 90%;
     background: rgb(255, 255, 255);
     border-radius: 2%;
-   height: 100%;
-    
+    height: 100%;    
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction:column;
     
   }
   
   /* CONTENEDOR DE LOS HORARIOS EN ESPERA */
   .contenedor-horarios {
     width: 100%;
-    margin-bottom: 30px;
     background: rgb(158, 158, 158);
     border-radius: 2%;
     min-width: 307px;
@@ -292,6 +291,30 @@
     color: #00661f;
     text-decoration: underline;
 }
+  .boton-aceptar{
+    background-color: #33e25f;
+    width: 120px;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    align-self: center;
+    line-height: 50%;
+  }
+  .boton-aceptar:hover{
+    background-color: #00661f;
+    text-decoration: underline;
+}
+
 
   /*SI NO EXISTE*/
   .div-existe{
@@ -302,39 +325,12 @@
     font-weight: 700;
     text-align: center;
     font-size: 15px;
-  }
-  /* TEXTO DE LA HORA */
-  .hora {
-    width:75px;
-    color: black;
-    background: transparent;
-    text-decoration: none;
-    border: none;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-weight: 700;
-    margin-left:10px;
-    text-align: center;
-    font-size: 15px;
-  }
-  
-  
-  /* LETRAS ACTIVAR */
-  .b_activar{
-    margin-right: 5px;
-    color: #00a030;
-    cursor: pointer;
-  }
-  
-  .b_activar:hover{
-      color: #00661f;
-      text-decoration: underline;
-  }
-  
+  }  
   
   /* ICONO DE ACTIVAR */
   .fa-check-circle{
-  margin-right: 10px;  
+  margin-left: 3px;
+  color: white;  
   }
   
 
