@@ -5,7 +5,7 @@ include("conexion.php");
 
 $array_query = array();
 
-$sql_recibe = "SELECT * FROM horarios_disponibles";
+$sql_recibe = "SELECT * FROM `horarios_disponibles` ORDER BY fecha asc, hora ASC; ";
 $resultado = mysqli_query($conexion, $sql_recibe);
 
 

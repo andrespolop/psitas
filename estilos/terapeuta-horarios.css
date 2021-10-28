@@ -272,23 +272,45 @@ margin-right: 10px;
 
 /*DIV fecha*/
 .fechas-horarios-disponibles{
-    background-color: #5E6DE3;
+    background-color: #3d51e9;
     border-radius: 3px;
     text-align: center;
-    height: 30px;
+    height: 40px;
     line-height: 30px;
     border-radius: 5px;
-    border-bottom: solid 2px #2f3eb3;
+    border-bottom: solid 2px #0719a1;
     position: sticky;
     top: 0px;
     
+    
   }
 
+  .fecha-estatica-disponible {
+    margin-top: 10px;
+    width: 210px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background: #7381ec;
+    display: inline-block;
+    margin-left: calc(50% - 105px);
+    border-bottom: solid 0.5px rgb(9, 58, 131);
+    border-radius: 10px;
+  }
   
+  
+  /* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
+  .fecha-estatica-disponible span{ 
+    font-weight: 600;
+  }
+
+
+
 
 /* LETRA DE FECHAS DISPONIBLES */
 .fechas-horarios-disponibles span{
   font-weight: 550;
+  line-height: 40px;
 }
 
 

@@ -77,6 +77,15 @@ for ($i=0; $i < 7; $i++) {
 
 ?>
 
+<!-- // +++++++++ ELIMINACION DE LA BASE DE DATOS +++++++++++++ -->
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

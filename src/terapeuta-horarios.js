@@ -97,29 +97,20 @@ xhr.onload = () => {
         indice++;
 
         var hora_real_h;
-    
+
         var hora_muestra_h;
         hora_real_h = horas[j];
-        console.log(hora_real_h);
-            if (hora_real_h<10) {
-                hora_muestra_h = "0"+hora_real_h+":00 AM";
-            }if (hora_real_h>9 && hora_real_h<12) {
-                hora_muestra_h = hora_real_h+":00 AM";
-            }if (hora_real_h == 12) {
-                hora_muestra_h = hora_real_h+":00 PM";
-            }if (hora_real_h>12) {
-                hora_muestra_h = "0"+(hora_real_h-12)+":00 PM";
-            }
-        //     if ((hora_real_h>9) && (hora_real_h<12)) {
-        //         hora_muestra_h = (hora_real_h)+":00 AM";
-        //         console.log(hora_muestra_h);
-        //     }if (hora_real_h<10) {
-        //         hora_muestra_h = ()
-        //     }
 
-
-
-
+        if (hora_real_h < 10) {
+          hora_muestra_h = "0" + hora_real_h + ":00 AM";
+        } if (hora_real_h > 9 && hora_real_h < 12) {
+          hora_muestra_h = hora_real_h + ":00 AM";
+        } if (hora_real_h == 12) {
+          hora_muestra_h = hora_real_h + ":00 PM";
+        } if (hora_real_h > 12) {
+          hora_muestra_h = "0" + (hora_real_h - 12) + ":00 PM";
+        }
+  
 
         const form = document.createElement("form");
         const div_hora = document.createElement("div");
@@ -151,7 +142,7 @@ xhr.onload = () => {
           if (
             horarios_disponibles[x]["id"] == "h" + indice &&
             horarios_disponibles[x]["id_terapeuta"] ==
-              document.getElementById("id_terapeuta").value
+            document.getElementById("id_terapeuta").value
           ) {
             form.setAttribute("hidden", "");
           }
@@ -170,8 +161,8 @@ xhr.onload = () => {
         input_hora_muestra.setAttribute("type", "text");
         input_hora_muestra.setAttribute("readonly", "");
         input_hora_muestra.setAttribute("value", hora_muestra_h);
-        
-        
+
+
         // ATRIBUTOS INNPUT_HORA
         input_hora.setAttribute("type", "hidden");
         input_hora.setAttribute("value", horas[j]);
@@ -226,53 +217,195 @@ xhr_dispo.open("GET", "php/php_terapeuta-horarios-disponibles.php");
 // Accedemos al JSON.
 xhr_dispo.onload = function () {
   if (xhr_dispo.status == 200) {
+    // Declarar las variables
     horarios_dispo_des = JSON.parse(xhr_dispo.responseText);
     var hora_real;
-    
     var hora_muestra;
+    var flag1 = false;
+    var flag2 = false;
+    var flag3 = false;
+    var flag4 = false;
+    var flag5 = false;
+    var flag6 = false;
+    var flag7 = false;
     
     for (let i = 0; i < horarios_dispo_des.length; i++) {
-        //Separador de fechas - horas
+      
+      //Separador de fechas - horas
       if (horarios_dispo_des[i]["id_terapeuta"] == document.getElementById("id_terapeuta").value) {
-        hora_real = horarios_dispo_des[i]["hora"];
-        if (hora_real>12) {
-            hora_muestra = "0"+(hora_real-12)+":00 PM";
-            console.log(hora_muestra);
-        } else {
-            hora_muestra = "0"+hora_real+":00 AM";
-        }
-        
-        // let horayminuto = horarios_dispo_des[i]["hora"].split(':');
-        // hora_se = parseInt(horayminuto[0]);
-        // min_se= parseInt(horayminuto[1]);
-        
-        
-        // if (hora_se<10) {
-        //     hora_new = "0"+hora_se;
-        //     min_new = "0"+min_se;
-        // } else{
-        //     hora_new = hora_se;
-        //     min_new = "0"+min_se;
-        // }
-
-//     console.log(horarios_dispo_des[0]["hora"]);
-// console.log(hora_new+":"+min_new);
-
         cont_eliminar++;
-        var form_d = document.createElement("form");
-        var div_hora_d = document.createElement("div");
-        var input_id_d = document.createElement("input");
-        var input_hora_d = document.createElement("input");
-        var input_fecha_d = document.createElement("input");
-        var input_nombre_t = document.createElement("input");
-        var label_boton_desactivar = document.createElement("label");
-        var input_submit_desactivar = document.createElement("input");
-        var b_desactivar = document.createElement("b");
-        var i_desactivar = document.createElement("i");
-        var b_desactivar_text = document.createTextNode("Desactivar");
+        hora_real = horarios_dispo_des[i]["hora"];
 
+        if (hora_real < 10) {
+          hora_muestra = "0" + hora_real + ":00 AM";
+        } if (hora_real > 9 && hora_real < 12) {
+          hora_muestra = hora_real + ":00 AM";
+        } if (hora_real == 12) {
+          hora_muestra = hora_real + ":00 PM";
+        } if (hora_real > 12) {
+          hora_muestra = "0" + (hora_real - 12) + ":00 PM";
+        }
+
+        
+        var p_fecha = new Date();
+        var separar_fecha = horarios_dispo_des[i]["fecha"].split('-');
+        var dia_correcto = separar_fecha[2];
+
+
+
+
+
+
+        
+
+
+        p_fecha.setDate(p_fecha.getDate());
+        
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag1 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);  
+          }        
+          listar_horarios_disponibles();
+          flag1 = true;
+        }
+// ++++++++++++++++++++++ DÍA 2 +++++++++++++++++
+        p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag2 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag2 = true;
+        }
+
+//    ++++++++++++ DÍA 3 +++++++++++++++++
+
+p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag3 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag3 = true;
+        }
+
+        // +++++++++++++ DÍA 4
+        p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag4 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag4 = true;
+        }
+
+
+        // ++++++++++ DÍA 5 ++++
+        p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag5 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag5 = true;
+        }
+
+
+        //++++++++++ DÍA NUMERO 6++++++++
+        p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag6 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag6 = true;
+        }
+
+
+        // +++++++ DÍA NUMERO 7 +++++
+        p_fecha.setDate(p_fecha.getDate()+1);
+        if (dia_correcto == p_fecha.getDate()) {
+          if (flag7 == false) {
+            const div_fecha_estatica_disponible = document.createElement("div");
+            const span_fecha_estatica_disponible = document.createElement("span");
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear()); 
+            div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
+            span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
+            div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
+          listar_horarios_disponibles();
+          flag7 = true;
+        }
+
+
+
+
+
+
+
+
+        // p_fecha.setDate(p_fecha.getDate() + 1);
+        // console.log(p_fecha.getDate());
+
+
+        // console.log(document.getElementById("id_terapeuta").value);
+        
+        
+
+        function listar_horarios_disponibles(){
+
+          const form_d = document.createElement("form");
+         const div_hora_d = document.createElement("div");
+         const input_id_d = document.createElement("input");
+         const input_hora_d = document.createElement("input");
+         const input_fecha_d = document.createElement("input");
+         const input_id_t = document.createElement("input");
+         const label_boton_desactivar = document.createElement("label");
+         const input_submit_desactivar = document.createElement("input");
+         const b_desactivar = document.createElement("b");
+         const i_desactivar = document.createElement("i");
+         const b_desactivar_text = document.createTextNode("Desactivar");
+
+        // psi-tas_icon_No-Background.ico
         //Atributos
-        form_d.setAttribute("action", "terapeuta-horarios.php");
+        form_d.setAttribute("action", "php/php_terapeuta-horarios-eliminar.php");
         form_d.setAttribute("method", "POST");
         form_d.setAttribute("class", "horarios");
         //atributos div_hora_d
@@ -280,26 +413,27 @@ xhr_dispo.onload = function () {
         //Atributos input_id_d;
         input_id_d.setAttribute("type", "hidden");
         input_id_d.setAttribute("value", horarios_dispo_des[i]["id"]);
-        input_id_d.setAttribute("name", "id"+cont_eliminar);
+        input_id_d.setAttribute("name", "id" + cont_eliminar);
         //atributos de Input_hora_d
-        input_fecha_d.setAttribute("type", "text");
+        input_fecha_d.setAttribute("type", "hidden");
         input_fecha_d.setAttribute("readonly", "");
         input_fecha_d.setAttribute("class", "fecha-disponible-eliminar");
         input_fecha_d.setAttribute("value", horarios_dispo_des[i]["fecha"]);
-        input_fecha_d.setAttribute("name", "fecha"+cont_eliminar);
+        input_fecha_d.setAttribute("name", "fecha" + cont_eliminar);
         //Atributos de input_hora_d
         input_hora_d.setAttribute("class", "hora-disponible");
         input_hora_d.setAttribute("type", "text");
         input_hora_d.setAttribute("readonly", "");
         input_hora_d.setAttribute("value", hora_muestra);
-        //Atributos input_nombre_t
-        input_nombre_t.setAttribute("type", "text");
-        input_nombre_t.setAttribute("class", "nombre_terapeuta");
-        input_nombre_t.setAttribute("hidden", "");
-        input_nombre_t.setAttribute("value", "polo");
+        //Atributos input_id_t
+        input_id_t.setAttribute("type", "text");
+        input_id_t.setAttribute("name", "id_terapeuta" + cont_eliminar);
+        input_id_t.setAttribute("value", document.getElementById("id_terapeuta").value);
+        input_id_t.setAttribute("hidden", "");
+
         // Atributos label F te sale (26/10/2021)
         label_boton_desactivar.setAttribute("class", "label-activar");
-        label_boton_desactivar.setAttribute("for", "btn-desactivar");
+        label_boton_desactivar.setAttribute("for", "btn-desactivar" + cont_eliminar);
         //atributos del b
         b_desactivar.setAttribute("class", "b_desactivar");
         b_desactivar.appendChild(b_desactivar_text);
@@ -307,7 +441,7 @@ xhr_dispo.onload = function () {
         i_desactivar.setAttribute("class", "fas fa-trash-alt");
         i_desactivar.setAttribute("style", "color:#f72e2e;");
         // Atributos submit
-        input_submit_desactivar.setAttribute("id", "btn-desactivar" + indice);
+        input_submit_desactivar.setAttribute("id", "btn-desactivar" + cont_eliminar);
         input_submit_desactivar.setAttribute("type", "submit");
         input_submit_desactivar.setAttribute("value", "desactivar");
         input_submit_desactivar.setAttribute("hidden", "");
@@ -317,7 +451,7 @@ xhr_dispo.onload = function () {
         div_hora_d.appendChild(input_id_d);
         div_hora_d.appendChild(input_hora_d);
         div_hora_d.appendChild(input_fecha_d);
-        div_hora_d.appendChild(input_nombre_t);
+        div_hora_d.appendChild(input_id_t);
         label_boton_desactivar.appendChild(b_desactivar);
         label_boton_desactivar.appendChild(i_desactivar);
         div_hora_d.appendChild(input_submit_desactivar);
@@ -327,9 +461,13 @@ xhr_dispo.onload = function () {
           .getElementsByClassName("horarios-disponible")[0]
           .appendChild(form_d);
 
-          console.log("muestra"+cont_eliminar);
+
+
+        }
+        
+         
       }
-   
+
     }
   } else {
     console.log("Error de tipo" + xhr_dispo.status);

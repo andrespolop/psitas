@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2021 a las 01:44:47
+-- Tiempo de generación: 28-10-2021 a las 22:08:44
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -52,21 +52,22 @@ CREATE TABLE `horarios_disponibles` (
   `id` varchar(3) NOT NULL,
   `fecha` date NOT NULL,
   `hora` int(11) NOT NULL,
-  `id_terapeuta` int(11) NOT NULL
+  `id_terapeuta` int(11) NOT NULL,
+  `id_paciente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `horarios_disponibles`
 --
 
-INSERT INTO `horarios_disponibles` (`id_horarios`, `id`, `fecha`, `hora`, `id_terapeuta`) VALUES
-(2, 'h6', '2021-10-27', 13, 1),
-(3, 'h1', '2021-10-27', 8, 1),
-(4, 'h4', '2021-10-27', 11, 1),
-(5, 'h1', '2021-10-27', 8, 2),
-(6, 'h4', '2021-10-27', 11, 2),
-(7, 'h8', '2021-10-27', 15, 2),
-(8, 'h29', '2021-10-30', 12, 2);
+INSERT INTO `horarios_disponibles` (`id_horarios`, `id`, `fecha`, `hora`, `id_terapeuta`, `id_paciente`) VALUES
+(1, 'h1', '2021-10-28', 8, 1, 7),
+(2, 'h10', '2021-10-29', 9, 1, 6),
+(3, 'h5', '2021-10-28', 12, 1, 7),
+(4, 'h17', '2021-10-30', 8, 1, 7),
+(5, 'h25', '2021-10-31', 8, 1, NULL),
+(6, 'h3', '2021-10-28', 10, 2, 6),
+(7, 'h7', '2021-10-28', 14, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ CREATE TABLE `usuarios` (
   `telefono` int(11) NOT NULL,
   `cedula` int(10) NOT NULL,
   `direccion` varchar(255) DEFAULT NULL,
-  `tipo_u` int(1) NOT NULL DEFAULT 2
+  `tipo_u` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -94,7 +95,9 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `contrasena`, `tel
 (1, 'Andres', 'Polo', 'polo@gmail.com', 'polopolo', 2147483647, 1234, 'Dg 32 #80D-87, conjunto residencial Fiorentti, apto 614', 2),
 (2, 'Fernando', 'Padilla', 'padilla@gmail.com', 'padilla123', 1231342543, 1235, 'Marbella', 2),
 (3, 'dario', 'ruiz', 'dario@gmail.com', 'dario123', 1234599929, 1236, NULL, 2),
-(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, NULL, 3);
+(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, NULL, 3),
+(6, 'AndresPaci', 'Paciente', 'andresp@gmail.com', 'polo123', 323232323, 12112121, NULL, 1),
+(7, 'padillaP', 'Paciente', 'fernandop@gmail.com', 'padilla123', 2312124, 45447778, NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -134,13 +137,13 @@ ALTER TABLE `citas`
 -- AUTO_INCREMENT de la tabla `horarios_disponibles`
 --
 ALTER TABLE `horarios_disponibles`
-  MODIFY `id_horarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_horarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
