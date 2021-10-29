@@ -55,7 +55,7 @@ $row = $ejecutar->fetch_assoc();
 
         <div class="flex-container">
             <div class="container-card">
-                <i class="fas fa-user-tie fa-10x" style="color: rgb(99, 99, 99)"></i>
+                <i class="fas fa-user-md fa-10x" style="color: rgb(99, 99, 99)"></i>
                 <p> <?php echo $row['nombre'] ?> </p>
                 <p> <?php echo utf8_decode($row['telefono']) ?> </p>
                 <p>Psiquiatra</p>

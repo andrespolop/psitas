@@ -108,6 +108,7 @@ a:hover {
     left: -100%;
     text-align: center;
     transition: all 0.5s;
+    z-index: 20;
   }
   nav ul li {
     display: block;
@@ -130,9 +131,6 @@ a:hover {
 
 
 
-
-
-
 /* ESTILOS DEL BODY Y CITAS */
 
 
@@ -149,7 +147,7 @@ a:hover {
   
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   justify-content: space-between;
   
 }
@@ -276,6 +274,7 @@ margin-right: 10px;
     letter-spacing: 1.5px;
     word-spacing: 4px;
     color: white;
+    z-index: 10;
     
   }
 
@@ -393,35 +392,6 @@ margin-right: 10px;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-.cita-2{
-    display: none;
-} */
-
-/* .cita-2{
-    display:block;
-} */
 
 @media (max-width: 996px) {
 

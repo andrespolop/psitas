@@ -57,10 +57,8 @@ if (!isset($_SESSION['id_terapeuta'])) {
                 </div>
             <div class="citas">
                 
+            
             </div>
-
-
-
 
         </div>
 

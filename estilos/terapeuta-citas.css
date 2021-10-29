@@ -173,13 +173,34 @@ a:hover {
 /* LOS CONTENEDORES DE LA HORA Y EL BOTÓN ACTIVAR */
 .horarios {
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: #fcfcfc;
   width: 90%;
   border-radius: 5px;
   line-height: 30px;
   margin-bottom: 25px;
 }
+
+
+.h3{
+  display: inline-block;
+  width: 200px;
+  margin-left: 5%;
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  margin-left: calc(50% - 100px);
+}
+
+.linea{
+  border-bottom: solid 2px rgb(0, 0, 0);
+  display: block;
+  width: 90%;
+  margin-left: 5%;
+  font-size:x-small;
+  margin-bottom: 20px;
+}
+
+
 
 /* DIV DE CADA CITAS */
 .div-citas {
@@ -243,24 +264,7 @@ a:hover {
   color: white;  
   font-weight: 650;
 }
-/* 
-.fecha-estatica-disponible {
-  margin-top: 10px;
-  width: 210px;
-  text-align: center;
-  height: 30px;
-  line-height: 30px;
-  background: #7381ec;
-  display: inline-block;
-  margin-left: calc(50% - 105px);
-  border-bottom: solid 0.5px rgb(9, 58, 131);
-  border-radius: 10px;
-} */
 
-/* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
-/* .fecha-estatica-disponible span {
-  font-weight: 600;
-} */
 
 /* LETRA DE FECHAS DISPONIBLES */
 .fechas-horarios-disponibles span {

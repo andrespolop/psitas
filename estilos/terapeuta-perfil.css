@@ -1,5 +1,5 @@
 :root{
-    --color_empresa:#b5d2ff;;
+    --color_empresa:#b5d2ff;
     --color_fondo: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));
     --color_fondo_hover: linear-gradient(to right, rgb(5, 218, 58),rgb(47, 50, 219));
 }
@@ -238,6 +238,7 @@ img{
     color: rgb(255, 255, 255);
     font-weight: 550;
     font-size: 14px;
+    height: 35px;
 }
 
 .editar-info:hover{
