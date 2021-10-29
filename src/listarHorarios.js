@@ -66,24 +66,21 @@ function horaCorrecta(x) {
         return x +":00"+" AM";
     }
 }
-//validamos checkboxes TERMINAR
+//validamos checkboxes 
 var counter = 0;//contador para cantidad de checkboxes
-function validarChck(){
+function validarChk2() {
     var valid = 0;
     for (let i = 0; i < counter; i++) {
-        if (document.getElementById("check"+i).checked) {            
-            console.log("check"+i);
-            document.getElementById("form"+i).submit();  
+        if (document.getElementById("check" + i).checked) {
             valid = 1;
-        }        
+        }
     }
     if (valid == 1) {
-        return true;
-    } else if(valid == 0) {
+        document.getElementById("formHor").submit();
+    } else if (valid == 0) {
         alert("No se ha escogido ninguna cita.");
-        return false;
-    }
 
+    }
 }
 //función split
 function splitFecha(x) {// x debe ser igual a fecha, y igual a 1 para mes, 2 para dia, recibe un string 
@@ -117,14 +114,9 @@ xhr.onload = function () {
                 var arr = horasEnDia(diaCorrectoSoloNumero(i));
                 
                 for (let j = 0; j < arr.length; j++) {
-                    const form = document.createElement("div");//el formulario
-                    form.setAttribute("class", "form-cita");
-                    form.setAttribute("action","paciente-citas.php");
-                    form.setAttribute("method", "POST");
-                    form.setAttribute("id","form"+counter);
-                    form.setAttribute("name","form"+counter);
-                    form.setAttribute("value",arr[j].id_horarios);
-                    const div_cita = document.createElement("div");//div máscara del formulario
+                    const div_citas = document.createElement("div");//div general
+                    div_citas.setAttribute("class", "div-citas");
+                    const div_cita = document.createElement("div");//div máscara del general
                     div_cita.setAttribute("class","div-cita");
                     const div_hora = document.createElement("div");//el div de la hora
                     div_hora.setAttribute("class", "div-hora");
@@ -151,19 +143,19 @@ xhr.onload = function () {
 
 
                     //append child
+                    div_citas.appendChild(div_cita);                    
+                    div_cita.appendChild(div_hora);
+                    div_cita.appendChild(div_terapeuta);
+                    div_cita.appendChild(div_mail);
+                    div_cita.appendChild(div_telefono);
+                    div_cita.appendChild(div_check);
+                    div_hora.appendChild(txt_div_hora);
+                    div_mail.appendChild(txt_div_mail);
+                    div_telefono.appendChild(txt_div_telefono);
+                    div_terapeuta.appendChild(txt_div_terapeuta);
                     div_check.appendChild(label_check);
                     div_check.appendChild(input_check);
-                    div_cita.appendChild(div_check);
-                    div_mail.appendChild(txt_div_mail);
-                    div_cita.appendChild(div_mail);
-                    div_telefono.appendChild(txt_div_telefono);
-                    div_cita.appendChild(div_telefono);
-                    div_terapeuta.appendChild(txt_div_terapeuta);
-                    div_cita.appendChild(div_terapeuta);
-                    div_hora.appendChild(txt_div_hora);
-                    div_cita.appendChild(div_hora);
-                    form.appendChild(div_cita);
-                    document.getElementsByClassName("form-horarios")[0].appendChild(form)
+                    document.getElementsByClassName("form-horarios")[0].appendChild(div_citas);
 
                     counter++;//el contador de las citas comienza a sumar
                 }
@@ -175,11 +167,14 @@ xhr.onload = function () {
             const div_existe = document.createElement("div");//div máscara 
             div_existe.setAttribute("class","div-existe");
             div_existe.appendChild(txt_no_existe);
-            document.getElementsByClassName("contenedor-horarios")[0].appendChild(div_existe);
+            document.getElementsByClassName("form-horarios")[0].appendChild(div_existe);
         }else{//botón que valida los checkboxes
-            const btn = document.createElement("button");//boton agendar
+            const btn = document.createElement("button");//boton agendar            
             btn.setAttribute("class","boton-aceptar");
-            btn.setAttribute("onclick","validarChck()");
+            //btn.setAttribute("type","submit");
+            btn.setAttribute("form","formHor");
+            //btn.setAttribute("onclick","validarChk()");
+            btn.setAttribute("onclick","validarChk2()");
             const txt_btn = document.createTextNode("Agendar");//texto del boton
             const ico = document.createElement("i");//icono del checkmark
             ico.setAttribute("class", "fas fa-check-circle");
