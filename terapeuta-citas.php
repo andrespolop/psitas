@@ -53,7 +53,7 @@ if (!isset($_SESSION['id_terapeuta'])) {
 
             
                 <div class="citas-agendadas">
-                    <span>CITAS AGENDADAS<i class="far fa-calendar-check"></i></span>
+                    <span>CITAS AGENDADAS<i class="fas fa-calendar-check"></i></span>
                 </div>
             <div class="citas">
                 

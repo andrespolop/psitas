@@ -147,7 +147,7 @@ for ($i=0; $i < 7; $i++) {
         <div class="contenedor-horarios-disponibles">
            <!-- <h1>Horarios Seleccionados</h1> -->
             <div class="fechas-horarios-disponibles">
-                <span>HORARIOS SELECCIONADOS</span>
+                <span>HORARIOS SELECCIONADOS</span><i class="fas fa-clock"></i>
             </div>
 
             <div class="horarios-disponible">

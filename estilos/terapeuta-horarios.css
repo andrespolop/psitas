@@ -277,9 +277,6 @@ margin-right: 10px;
     word-spacing: 4px;
     color: white;
     
-    
-    
-    
   }
 
   .fecha-estatica-disponible {
@@ -297,20 +294,27 @@ margin-right: 10px;
     margin-bottom: 2px;
   }
   
-  
-  /* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
-  .fecha-estatica-disponible span{ 
-    font-weight: 600;
-  }
-
-
 
 
 /* LETRA DE FECHAS DISPONIBLES */
 .fechas-horarios-disponibles span{
   font-weight: 650;
   line-height: 40px;
+  
 }
+
+
+.fas{
+  margin-left: 5px;
+}
+
+
+
+  /* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
+  .fecha-estatica-disponible span{ 
+    font-weight: 600;
+  }
+
 
 
 .div-hora-disponible{
