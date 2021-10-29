@@ -43,7 +43,7 @@ $row = $ejecutar->fetch_assoc();
         <label class="logo"><a href="index.html">PSITAS</a></label>
         <ul>
             <li><a href="paciente-citas.php">AGENDAR CITAS</a></li>
-            <li><a href="">VER CITAS AGENDADAS</a></li>
+            <li><a href="citas-agendadas.php">CITAS AGENDADAS</a></li>
             <li><a class="active" href="paciente-perfil.php">PERFIL</a></li>
             <li><a href="php/salir.php">SALIR</a></li>
         </ul>
