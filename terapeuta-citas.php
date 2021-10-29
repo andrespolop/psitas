@@ -9,6 +9,8 @@ if (!isset($_SESSION['id_terapeuta'])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +19,7 @@ if (!isset($_SESSION['id_terapeuta'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
+    <script src="src/terapeuta-citas.js" defer></script>
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos/terapeuta-citas.css">
     <title>Terapeuta-Citas</title>
@@ -38,45 +41,33 @@ if (!isset($_SESSION['id_terapeuta'])) {
         </ul>
     </nav>
 
-    <!-- COLOCAREMOS LAS FECHAS Y LAS CITAS-->
 
-    <div class="div-fecha">
-        <h2 class="fecha">11 de Octubre del 2021</h2>
-        <span class="linea"></span>
+    <!-- CREAMOS LOS HORARIOS DE ATENCIÓN DISPONIBLES EN EL SISTEMA -->
+
+    <input type="hidden" id="id_terapeuta" value="<?php echo $row["id"]; ?>">
+    <input type="hidden" id="nombre_terapeuta" value="<?php echo $row["nombre"] ?>">
+    <!-- PRIMERO +++++++++++++++ -->
+    <div class="contenedor">
+
+        <div class="contenedor-citas">
+
+            
+                <div class="citas-agendadas">
+                    <span>CITAS AGENDADAS<i class="far fa-calendar-check"></i></span>
+                </div>
+            <div class="citas">
+                
+            </div>
+
+
+
+
+        </div>
+
     </div>
 
 
-    <!-- COLOCAMOS LAS CARDS DE LAS CITAS-->
-    <div class="contenedor-citas">
-        <div class="citas-card">
-            <p id="nombre_cliente"><b>Nombre:</b> Andres Polo</p>
-            <p id="correo_cliente"><b>Correo:</b> andrespolop@gmail.com</p>
-            <p id="cedula_cliente"><b>Cédula:</b> 100xxxxx</p>
-            <p id="celular_cliente"><b>Celular:</b> 30070xxxxx</p>
-            <p id="hora_cliente"><b>Hora:</b> 10:30 PM</p>
-        </div>
-        <div class="citas-card">
-            <p id="nombre_cliente"><b>Nombre:</b> Andres Polo</p>
-            <p id="correo_cliente"><b>Correo:</b> andrespolop@gmail.com</p>
-            <p id="cedula_cliente"><b>Cédula:</b> 100xxxxx</p>
-            <p id="celular_cliente"><b>Celular:</b> 30070xxxxx</p>
-            <p id="hora_cliente"><b>Hora:</b> 10:30 PM</p>
-        </div>
-        <div class="citas-card">
-            <p id="nombre_cliente"><b>Nombre:</b> Andres Polo</p>
-            <p id="correo_cliente"><b>Correo:</b> andrespolop@gmail.com</p>
-            <p id="cedula_cliente"><b>Cédula:</b> 100xxxxx</p>
-            <p id="celular_cliente"><b>Celular:</b> 30070xxxxx</p>
-            <p id="hora_cliente"><b>Hora:</b> 10:30 PM</p>
-        </div>
-        <div class="citas-card">
-            <p id="nombre_cliente"><b>Nombre:</b> Andres Polo</p>
-            <p id="correo_cliente"><b>Correo:</b> apolop@unicarta.edu.co</p>
-            <p id="cedula_cliente"><b>Cédula:</b> 100xxxxx</p>
-            <p id="celular_cliente"><b>Celular:</b> 30070xxxxx</p>
-            <p id="hora_cliente"><b>Hora:</b> 10:30 PM</p>
-        </div>
-    </div>
+
 
 
 </body>

@@ -9,17 +9,8 @@ xhr.open("GET", "php/php_terapeuta-horarios.php");
 xhr.onload = () => {
   if (xhr.status == 200) {
     horarios_disponibles = JSON.parse(xhr.responseText);
-
-    var horas = [
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-    ];
+    console.log(horarios_disponibles);
+    var horas = [8, 9, 10, 11, 12, 13, 14, 15];
 
     function diaCorrecto(x) {
       var fecha = new Date();
@@ -110,7 +101,7 @@ xhr.onload = () => {
         } if (hora_real_h > 12) {
           hora_muestra_h = "0" + (hora_real_h - 12) + ":00 PM";
         }
-  
+
 
         const form = document.createElement("form");
         const div_hora = document.createElement("div");
@@ -228,9 +219,9 @@ xhr_dispo.onload = function () {
     var flag5 = false;
     var flag6 = false;
     var flag7 = false;
-    
+
     for (let i = 0; i < horarios_dispo_des.length; i++) {
-      
+
       //Separador de fechas - horas
       if (horarios_dispo_des[i]["id_terapeuta"] == document.getElementById("id_terapeuta").value) {
         cont_eliminar++;
@@ -246,41 +237,35 @@ xhr_dispo.onload = function () {
           hora_muestra = "0" + (hora_real - 12) + ":00 PM";
         }
 
-        
+
         var p_fecha = new Date();
         var separar_fecha = horarios_dispo_des[i]["fecha"].split('-');
         var dia_correcto = separar_fecha[2];
 
 
 
-
-
-
-        
-
-
         p_fecha.setDate(p_fecha.getDate());
-        
+
         if (dia_correcto == p_fecha.getDate()) {
           if (flag1 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
-            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);  
-          }        
+            document.getElementsByClassName("horarios-disponible")[0].appendChild(div_fecha_estatica_disponible);
+          }
           listar_horarios_disponibles();
           flag1 = true;
         }
-// ++++++++++++++++++++++ DÍA 2 +++++++++++++++++
-        p_fecha.setDate(p_fecha.getDate()+1);
+        // ++++++++++++++++++++++ DÍA 2 +++++++++++++++++
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag2 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -290,14 +275,14 @@ xhr_dispo.onload = function () {
           flag2 = true;
         }
 
-//    ++++++++++++ DÍA 3 +++++++++++++++++
+        //    ++++++++++++ DÍA 3 +++++++++++++++++
 
-p_fecha.setDate(p_fecha.getDate()+1);
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag3 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -308,12 +293,12 @@ p_fecha.setDate(p_fecha.getDate()+1);
         }
 
         // +++++++++++++ DÍA 4
-        p_fecha.setDate(p_fecha.getDate()+1);
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag4 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -325,12 +310,12 @@ p_fecha.setDate(p_fecha.getDate()+1);
 
 
         // ++++++++++ DÍA 5 ++++
-        p_fecha.setDate(p_fecha.getDate()+1);
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag5 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -342,12 +327,12 @@ p_fecha.setDate(p_fecha.getDate()+1);
 
 
         //++++++++++ DÍA NUMERO 6++++++++
-        p_fecha.setDate(p_fecha.getDate()+1);
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag6 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear());
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -359,12 +344,12 @@ p_fecha.setDate(p_fecha.getDate()+1);
 
 
         // +++++++ DÍA NUMERO 7 +++++
-        p_fecha.setDate(p_fecha.getDate()+1);
+        p_fecha.setDate(p_fecha.getDate() + 1);
         if (dia_correcto == p_fecha.getDate()) {
           if (flag7 == false) {
             const div_fecha_estatica_disponible = document.createElement("div");
             const span_fecha_estatica_disponible = document.createElement("span");
-            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate()+' del mes '+(p_fecha.getMonth()+1)+' del año '+p_fecha.getFullYear()); 
+            const span_fecha_dis_text = document.createTextNode(p_fecha.getDate() + ' del mes ' + (p_fecha.getMonth() + 1) + ' del año ' + p_fecha.getFullYear());
             div_fecha_estatica_disponible.setAttribute("class", "fecha-estatica-disponible");
             span_fecha_estatica_disponible.appendChild(span_fecha_dis_text);
             div_fecha_estatica_disponible.appendChild(span_fecha_estatica_disponible);
@@ -386,86 +371,86 @@ p_fecha.setDate(p_fecha.getDate()+1);
 
 
         // console.log(document.getElementById("id_terapeuta").value);
-        
-        
 
-        function listar_horarios_disponibles(){
+
+
+        function listar_horarios_disponibles() {
 
           const form_d = document.createElement("form");
-         const div_hora_d = document.createElement("div");
-         const input_id_d = document.createElement("input");
-         const input_hora_d = document.createElement("input");
-         const input_fecha_d = document.createElement("input");
-         const input_id_t = document.createElement("input");
-         const label_boton_desactivar = document.createElement("label");
-         const input_submit_desactivar = document.createElement("input");
-         const b_desactivar = document.createElement("b");
-         const i_desactivar = document.createElement("i");
-         const b_desactivar_text = document.createTextNode("Desactivar");
+          const div_hora_d = document.createElement("div");
+          const input_id_d = document.createElement("input");
+          const input_hora_d = document.createElement("input");
+          const input_fecha_d = document.createElement("input");
+          const input_id_t = document.createElement("input");
+          const label_boton_desactivar = document.createElement("label");
+          const input_submit_desactivar = document.createElement("input");
+          const b_desactivar = document.createElement("b");
+          const i_desactivar = document.createElement("i");
+          const b_desactivar_text = document.createTextNode("Desactivar");
 
-        // psi-tas_icon_No-Background.ico
-        //Atributos
-        form_d.setAttribute("action", "php/php_terapeuta-horarios-eliminar.php");
-        form_d.setAttribute("method", "POST");
-        form_d.setAttribute("class", "horarios");
-        //atributos div_hora_d
-        div_hora_d.setAttribute("class", "div-hora-disponible");
-        //Atributos input_id_d;
-        input_id_d.setAttribute("type", "hidden");
-        input_id_d.setAttribute("value", horarios_dispo_des[i]["id"]);
-        input_id_d.setAttribute("name", "id" + cont_eliminar);
-        //atributos de Input_hora_d
-        input_fecha_d.setAttribute("type", "hidden");
-        input_fecha_d.setAttribute("readonly", "");
-        input_fecha_d.setAttribute("class", "fecha-disponible-eliminar");
-        input_fecha_d.setAttribute("value", horarios_dispo_des[i]["fecha"]);
-        input_fecha_d.setAttribute("name", "fecha" + cont_eliminar);
-        //Atributos de input_hora_d
-        input_hora_d.setAttribute("class", "hora-disponible");
-        input_hora_d.setAttribute("type", "text");
-        input_hora_d.setAttribute("readonly", "");
-        input_hora_d.setAttribute("value", hora_muestra);
-        //Atributos input_id_t
-        input_id_t.setAttribute("type", "text");
-        input_id_t.setAttribute("name", "id_terapeuta" + cont_eliminar);
-        input_id_t.setAttribute("value", document.getElementById("id_terapeuta").value);
-        input_id_t.setAttribute("hidden", "");
+          // psi-tas_icon_No-Background.ico
+          //Atributos
+          form_d.setAttribute("action", "php/php_terapeuta-horarios-eliminar.php");
+          form_d.setAttribute("method", "POST");
+          form_d.setAttribute("class", "horarios");
+          //atributos div_hora_d
+          div_hora_d.setAttribute("class", "div-hora-disponible");
+          //Atributos input_id_d;
+          input_id_d.setAttribute("type", "hidden");
+          input_id_d.setAttribute("value", horarios_dispo_des[i]["id"]);
+          input_id_d.setAttribute("name", "id" + cont_eliminar);
+          //atributos de Input_hora_d
+          input_fecha_d.setAttribute("type", "hidden");
+          input_fecha_d.setAttribute("readonly", "");
+          input_fecha_d.setAttribute("class", "fecha-disponible-eliminar");
+          input_fecha_d.setAttribute("value", horarios_dispo_des[i]["fecha"]);
+          input_fecha_d.setAttribute("name", "fecha" + cont_eliminar);
+          //Atributos de input_hora_d
+          input_hora_d.setAttribute("class", "hora-disponible");
+          input_hora_d.setAttribute("type", "text");
+          input_hora_d.setAttribute("readonly", "");
+          input_hora_d.setAttribute("value", hora_muestra);
+          //Atributos input_id_t
+          input_id_t.setAttribute("type", "text");
+          input_id_t.setAttribute("name", "id_terapeuta" + cont_eliminar);
+          input_id_t.setAttribute("value", document.getElementById("id_terapeuta").value);
+          input_id_t.setAttribute("hidden", "");
 
-        // Atributos label F te sale (26/10/2021)
-        label_boton_desactivar.setAttribute("class", "label-activar");
-        label_boton_desactivar.setAttribute("for", "btn-desactivar" + cont_eliminar);
-        //atributos del b
-        b_desactivar.setAttribute("class", "b_desactivar");
-        b_desactivar.appendChild(b_desactivar_text);
-        //atributos del i
-        i_desactivar.setAttribute("class", "fas fa-trash-alt");
-        i_desactivar.setAttribute("style", "color:#f72e2e;");
-        // Atributos submit
-        input_submit_desactivar.setAttribute("id", "btn-desactivar" + cont_eliminar);
-        input_submit_desactivar.setAttribute("type", "submit");
-        input_submit_desactivar.setAttribute("value", "desactivar");
-        input_submit_desactivar.setAttribute("hidden", "");
+          // Atributos label F te sale (26/10/2021)
+          label_boton_desactivar.setAttribute("class", "label-activar");
+          label_boton_desactivar.setAttribute("for", "btn-desactivar" + cont_eliminar);
+          //atributos del b
+          b_desactivar.setAttribute("class", "b_desactivar");
+          b_desactivar.appendChild(b_desactivar_text);
+          //atributos del i
+          i_desactivar.setAttribute("class", "fas fa-trash-alt");
+          i_desactivar.setAttribute("style", "color:#f72e2e;");
+          // Atributos submit
+          input_submit_desactivar.setAttribute("id", "btn-desactivar" + cont_eliminar);
+          input_submit_desactivar.setAttribute("type", "submit");
+          input_submit_desactivar.setAttribute("value", "desactivar");
+          input_submit_desactivar.setAttribute("hidden", "");
 
-        //APPEND CHILDREN
+          //APPEND CHILDREN
 
-        div_hora_d.appendChild(input_id_d);
-        div_hora_d.appendChild(input_hora_d);
-        div_hora_d.appendChild(input_fecha_d);
-        div_hora_d.appendChild(input_id_t);
-        label_boton_desactivar.appendChild(b_desactivar);
-        label_boton_desactivar.appendChild(i_desactivar);
-        div_hora_d.appendChild(input_submit_desactivar);
-        div_hora_d.appendChild(label_boton_desactivar);
-        form_d.appendChild(div_hora_d);
-        document
-          .getElementsByClassName("horarios-disponible")[0]
-          .appendChild(form_d);
+          div_hora_d.appendChild(input_id_d);
+          div_hora_d.appendChild(input_hora_d);
+          div_hora_d.appendChild(input_fecha_d);
+          div_hora_d.appendChild(input_id_t);
+          label_boton_desactivar.appendChild(b_desactivar);
+          label_boton_desactivar.appendChild(i_desactivar);
+          div_hora_d.appendChild(input_submit_desactivar);
+          div_hora_d.appendChild(label_boton_desactivar);
+          form_d.appendChild(div_hora_d);
+          document
+            .getElementsByClassName("horarios-disponible")[0]
+            .appendChild(form_d);
 
 
 
         }
-        
-         
+
+
       }
 
     }

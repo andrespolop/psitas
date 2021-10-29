@@ -128,16 +128,7 @@ a:hover {
 }
 
 
-/* dfn
-dfd
-ef
-fffd
-z
-z
-z
-z
-z
-ñ */
+
 
 
 
@@ -182,7 +173,7 @@ z
   text-align: center;
   height: 30px;
   line-height: 30px;
-  background: #3EF86E;
+  background: #1bdf4c;
  
   border-bottom: solid 0.5px rgb(150, 150, 150);
 }
@@ -190,14 +181,15 @@ z
 
 /* LETRA DE FECHAS DE LOS HORARIOS EN ESPERA */
 .fecha-estatica span{ 
-  font-weight: 600;
+  font-weight: 620;
+  color: white;
 }
 
 
 /* LOS CONTENEDORES DE LA HORA Y EL BOTÓN ACTIVAR */
 .horarios {
   margin: auto;
-  margin-top: 20px;
+  
   background-color: #cecece;
   width: 90%;
   border-radius: 5px;
@@ -263,11 +255,11 @@ margin-right: 10px;
 .contenedor-horarios-disponibles{
   width: calc(65% - 20px);
   margin-bottom: 40px;
-  background: rgb(161, 161, 161);
   border-radius: 2%;
   margin-bottom: 30px;
   overflow-y: scroll;
   height: 600px;
+  background: rgb(165, 165, 165);
 }
 
 /*DIV fecha*/
@@ -281,21 +273,28 @@ margin-right: 10px;
     border-bottom: solid 2px #0719a1;
     position: sticky;
     top: 0px;
+    letter-spacing: 1.5px;
+    word-spacing: 4px;
+    color: white;
+    
+    
     
     
   }
 
   .fecha-estatica-disponible {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 210px;
     text-align: center;
     height: 30px;
     line-height: 30px;
     background: #7381ec;
     display: inline-block;
+    margin-left: 5%;
     margin-left: calc(50% - 105px);
     border-bottom: solid 0.5px rgb(9, 58, 131);
     border-radius: 10px;
+    margin-bottom: 2px;
   }
   
   
@@ -309,7 +308,7 @@ margin-right: 10px;
 
 /* LETRA DE FECHAS DISPONIBLES */
 .fechas-horarios-disponibles span{
-  font-weight: 550;
+  font-weight: 650;
   line-height: 40px;
 }
 

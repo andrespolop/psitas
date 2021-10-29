@@ -37,8 +37,6 @@ for ($i=0; $i < 7; $i++) {
          $id_terapeuta = $_POST["id_terapeuta"];
 
          //Variables para borrar
-         
-
 
 
          $sql_comprobacion = "SELECT * FROM horarios_disponibles WHERE id = '$id' and id_terapeuta = '$id_terapeuta'";
