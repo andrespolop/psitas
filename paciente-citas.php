@@ -17,7 +17,29 @@ $ejecutar = $conexion ->query($sql);
 
 $row = $ejecutar->fetch_assoc();
 
-/*ENVIO A LA BD DE LAS CITAS AGENDADAS*/ 
+?>
+<!--ENVIO A LA BD DE LAS CITAS AGENDADAS-->
+<?php
+include("php/conexion.php");
+if (isset($_POST["check"])) {
+    foreach ($_POST["check"] as $idh) {
+        
+        $sql = "UPDATE `horarios_disponibles` 
+        SET `id_paciente`= '$id_paciente' WHERE id_horarios = '$idh'";
+        $ejecutar = $conexion ->query($sql);
+        if (!$ejecutar) {
+           echo "Error al ejecutar el SQL";
+           
+        }else {
+           echo "<script>
+           alert('Citas registradas correctamente.');
+           window.location = 'paciente-citas.php';
+           </script>
+           ";
+        }
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -54,8 +76,8 @@ $row = $ejecutar->fetch_assoc();
     <!-- CREAMOS LOS HORARIOS DE ATENCIÓN DISPONIBLES EN EL SISTEMA -->
     <div class="contenedor">
         <!--contenedor general inicio-->
-        <div class="contenedor-horarios">
-        </div>
+        <form class="form-horarios" action="paciente-citas.php" method = "POST" id = "formHor" name = "form" value="none">
+        </form>
         <!--contenedor de horarios final-->
     </div>
     <!--contenedor general final-->

@@ -28,21 +28,30 @@ function diaCorrectoSoloNumero(x) {//para tener solo el numero del día, porque 
 }
 //funcion de validación en base de datos
 function validacionDias(x) {//validamos los días
-    var arr = [];
-    for (let it = 0; it < objectJ.length; it++) {
-        arr.push(splitFecha(objectJ[it].fecha));//cambiaremos objectJ[it].dia por el splitFecha 
-    }
+    var arr = [];    
+
     function equalsTo(y) {
         return y == x;
     }
-    return arr.some(equalsTo);
+
+    function isNull(y) {
+        return y == null;
+    }
+
+    for (let it = 0; it < objectJ.length; it++) {        
+        if (isNull(objectJ[it].id_paciente)) {
+            arr.push(splitFecha(objectJ[it].fecha));//cambiaremos objectJ[it].dia por el splitFecha
+        }
+    }
+
+    return arr.some(equalsTo);//return bool var
 }
 
 //agregamos todas las citas de un dia a un array
 function horasEnDia(x) {
     var arr = [];
     for (let index = 0; index < objectJ.length; index++) {
-        if (splitFecha(objectJ[index].fecha) == x) {//splitFecha(objectJ[index].fecha) == x
+        if (splitFecha(objectJ[index].fecha) == x && objectJ[index].id_paciente == null) {//splitFecha(objectJ[index].fecha) == x
             arr.push(objectJ[index]);
         }
     }
@@ -57,21 +66,20 @@ function horaCorrecta(x) {
         return x +":00"+" AM";
     }
 }
-//validamos checkboxes TERMINAR
+//validamos checkboxes 
 var counter = 0;//contador para cantidad de checkboxes
-function validarChck(){
+function validarChk2() {
     var valid = 0;
     for (let i = 0; i < counter; i++) {
-        if (document.getElementById("check"+i).checked) {            
-            console.log("check"+i);
+        if (document.getElementById("check" + i).checked) {
             valid = 1;
-        }        
+        }
     }
     if (valid == 1) {
-        return true;
-    } else if(valid == 0) {
+        document.getElementById("formHor").submit();
+    } else if (valid == 0) {
         alert("No se ha escogido ninguna cita.");
-        return false;
+
     }
 }
 //función split
@@ -100,15 +108,15 @@ xhr.onload = function () {
                 const span_fecha = document.createElement("span");
                 let fechaI = "fecha" + i;
                 span_fecha.id = fechaI;
-                document.getElementsByClassName("contenedor-horarios")[0].appendChild(div_fecha);
+                document.getElementsByClassName("form-horarios")[0].appendChild(div_fecha);
                 div_fecha.appendChild(span_fecha);
                 document.getElementById(fechaI).innerHTML = diaCorrecto(i);
                 var arr = horasEnDia(diaCorrectoSoloNumero(i));
                 
                 for (let j = 0; j < arr.length; j++) {
-                    const form = document.createElement("form");//el formulario
-                    form.setAttribute("class", "form-cita");
-                    const div_cita = document.createElement("div");//div máscara del formulario
+                    const div_citas = document.createElement("div");//div general
+                    div_citas.setAttribute("class", "div-citas");
+                    const div_cita = document.createElement("div");//div máscara del general
                     div_cita.setAttribute("class","div-cita");
                     const div_hora = document.createElement("div");//el div de la hora
                     div_hora.setAttribute("class", "div-hora");
@@ -128,26 +136,26 @@ xhr.onload = function () {
                     input_check.setAttribute("type","checkbox");                    
                     input_check.setAttribute("value",arr[j].id_horarios);//value = id de la cita                
                     input_check.setAttribute("id","check"+counter);
-                    input_check.setAttribute("name","check"+counter);
+                    input_check.setAttribute("name","check[]");
                     const label_check = document.createElement("label");//label del checkbox
                     label_check.setAttribute("for","check"+counter);
                     label_check.innerHTML = "Seleccionar";
 
 
                     //append child
+                    div_citas.appendChild(div_cita);                    
+                    div_cita.appendChild(div_hora);
+                    div_cita.appendChild(div_terapeuta);
+                    div_cita.appendChild(div_mail);
+                    div_cita.appendChild(div_telefono);
+                    div_cita.appendChild(div_check);
+                    div_hora.appendChild(txt_div_hora);
+                    div_mail.appendChild(txt_div_mail);
+                    div_telefono.appendChild(txt_div_telefono);
+                    div_terapeuta.appendChild(txt_div_terapeuta);
                     div_check.appendChild(label_check);
                     div_check.appendChild(input_check);
-                    div_cita.appendChild(div_check);
-                    div_mail.appendChild(txt_div_mail);
-                    div_cita.appendChild(div_mail);
-                    div_telefono.appendChild(txt_div_telefono);
-                    div_cita.appendChild(div_telefono);
-                    div_terapeuta.appendChild(txt_div_terapeuta);
-                    div_cita.appendChild(div_terapeuta);
-                    div_hora.appendChild(txt_div_hora);
-                    div_cita.appendChild(div_hora);
-                    form.appendChild(div_cita);
-                    document.getElementsByClassName("contenedor-horarios")[0].appendChild(form)
+                    document.getElementsByClassName("form-horarios")[0].appendChild(div_citas);
 
                     counter++;//el contador de las citas comienza a sumar
                 }
@@ -159,11 +167,14 @@ xhr.onload = function () {
             const div_existe = document.createElement("div");//div máscara 
             div_existe.setAttribute("class","div-existe");
             div_existe.appendChild(txt_no_existe);
-            document.getElementsByClassName("contenedor-horarios")[0].appendChild(div_existe);
+            document.getElementsByClassName("form-horarios")[0].appendChild(div_existe);
         }else{//botón que valida los checkboxes
-            const btn = document.createElement("button");//boton agendar
+            const btn = document.createElement("button");//boton agendar            
             btn.setAttribute("class","boton-aceptar");
-            btn.setAttribute("onclick","validarChck()");
+            //btn.setAttribute("type","submit");
+            btn.setAttribute("form","formHor");
+            //btn.setAttribute("onclick","validarChk()");
+            btn.setAttribute("onclick","validarChk2()");
             const txt_btn = document.createTextNode("Agendar");//texto del boton
             const ico = document.createElement("i");//icono del checkmark
             ico.setAttribute("class", "fas fa-check-circle");
