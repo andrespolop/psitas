@@ -10,7 +10,7 @@ if(mysqli_connect_errno()){
 
 // Creamos la sentencia SQL
 
-$sql = "SELECT ho.id_horarios,ho.fecha,ho.hora,ho.id_terapeuta,us.nombre,us.apellido,us.telefono, us.correo 
+$sql = "SELECT ho.id_horarios,ho.fecha,ho.hora,ho.id_terapeuta, ho.id_paciente, us.nombre,us.apellido,us.telefono, us.correo  
 FROM horarios_disponibles as ho JOIN usuarios as us ON ho.id_terapeuta = us.id ORDER BY fecha ASC, hora ASC;";
  
 

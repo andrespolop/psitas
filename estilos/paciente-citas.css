@@ -164,7 +164,7 @@
   }
   
   /* CONTENEDOR DE LOS HORARIOS EN ESPERA */
-  .contenedor-horarios {
+  .form-horarios {
     width: 100%;
     background: rgb(158, 158, 158);
     border-radius: 2%;

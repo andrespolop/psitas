@@ -28,21 +28,30 @@ function diaCorrectoSoloNumero(x) {//para tener solo el numero del día, porque 
 }
 //funcion de validación en base de datos
 function validacionDias(x) {//validamos los días
-    var arr = [];
-    for (let it = 0; it < objectJ.length; it++) {
-        arr.push(splitFecha(objectJ[it].fecha));//cambiaremos objectJ[it].dia por el splitFecha 
-    }
+    var arr = [];    
+
     function equalsTo(y) {
         return y == x;
     }
-    return arr.some(equalsTo);
+
+    function isNull(y) {
+        return y == null;
+    }
+
+    for (let it = 0; it < objectJ.length; it++) {        
+        if (isNull(objectJ[it].id_paciente)) {
+            arr.push(splitFecha(objectJ[it].fecha));//cambiaremos objectJ[it].dia por el splitFecha
+        }
+    }
+
+    return arr.some(equalsTo);//return bool var
 }
 
 //agregamos todas las citas de un dia a un array
 function horasEnDia(x) {
     var arr = [];
     for (let index = 0; index < objectJ.length; index++) {
-        if (splitFecha(objectJ[index].fecha) == x) {//splitFecha(objectJ[index].fecha) == x
+        if (splitFecha(objectJ[index].fecha) == x && objectJ[index].id_paciente == null) {//splitFecha(objectJ[index].fecha) == x
             arr.push(objectJ[index]);
         }
     }
@@ -64,6 +73,7 @@ function validarChck(){
     for (let i = 0; i < counter; i++) {
         if (document.getElementById("check"+i).checked) {            
             console.log("check"+i);
+            document.getElementById("form"+i).submit();  
             valid = 1;
         }        
     }
@@ -73,6 +83,7 @@ function validarChck(){
         alert("No se ha escogido ninguna cita.");
         return false;
     }
+
 }
 //función split
 function splitFecha(x) {// x debe ser igual a fecha, y igual a 1 para mes, 2 para dia, recibe un string 
@@ -100,14 +111,19 @@ xhr.onload = function () {
                 const span_fecha = document.createElement("span");
                 let fechaI = "fecha" + i;
                 span_fecha.id = fechaI;
-                document.getElementsByClassName("contenedor-horarios")[0].appendChild(div_fecha);
+                document.getElementsByClassName("form-horarios")[0].appendChild(div_fecha);
                 div_fecha.appendChild(span_fecha);
                 document.getElementById(fechaI).innerHTML = diaCorrecto(i);
                 var arr = horasEnDia(diaCorrectoSoloNumero(i));
                 
                 for (let j = 0; j < arr.length; j++) {
-                    const form = document.createElement("form");//el formulario
+                    const form = document.createElement("div");//el formulario
                     form.setAttribute("class", "form-cita");
+                    form.setAttribute("action","paciente-citas.php");
+                    form.setAttribute("method", "POST");
+                    form.setAttribute("id","form"+counter);
+                    form.setAttribute("name","form"+counter);
+                    form.setAttribute("value",arr[j].id_horarios);
                     const div_cita = document.createElement("div");//div máscara del formulario
                     div_cita.setAttribute("class","div-cita");
                     const div_hora = document.createElement("div");//el div de la hora
@@ -128,7 +144,7 @@ xhr.onload = function () {
                     input_check.setAttribute("type","checkbox");                    
                     input_check.setAttribute("value",arr[j].id_horarios);//value = id de la cita                
                     input_check.setAttribute("id","check"+counter);
-                    input_check.setAttribute("name","check"+counter);
+                    input_check.setAttribute("name","check[]");
                     const label_check = document.createElement("label");//label del checkbox
                     label_check.setAttribute("for","check"+counter);
                     label_check.innerHTML = "Seleccionar";
@@ -147,7 +163,7 @@ xhr.onload = function () {
                     div_hora.appendChild(txt_div_hora);
                     div_cita.appendChild(div_hora);
                     form.appendChild(div_cita);
-                    document.getElementsByClassName("contenedor-horarios")[0].appendChild(form)
+                    document.getElementsByClassName("form-horarios")[0].appendChild(form)
 
                     counter++;//el contador de las citas comienza a sumar
                 }
