@@ -43,7 +43,7 @@ $row = $ejecutar->fetch_assoc();
         <label class="logo"><a href="index.html">PSITAS</a></label>
         <ul>
             <li><a href="paciente-citas.php">AGENDAR CITAS</a></li>
-            <li><a href="">VER CITAS AGENDADAS</a></li>
+            <li><a href="citas-agendadas.php">CITAS AGENDADAS</a></li>
             <li><a class="active" href="paciente-perfil.php">PERFIL</a></li>
             <li><a href="php/salir.php">SALIR</a></li>
         </ul>
@@ -59,7 +59,7 @@ $row = $ejecutar->fetch_assoc();
                 </p>
                 <p> <?php echo utf8_decode($row['telefono']) ?> </p>
             </div>
-            <form class="container-info" action="php/modificar-terapeuta.php" method="POST">
+            <form class="container-info" action="php/modificar-paciente.php" method="POST">
                 <h2>MI INFORMACIÓN</h2>
                 <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
                 <div><b class="nombre">Nombre:</b><input name="nombre" value="<?php echo $row['nombre']; ?>"
