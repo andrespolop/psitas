@@ -59,7 +59,7 @@ $row = $ejecutar->fetch_assoc();
                 </p>
                 <p> <?php echo utf8_decode($row['telefono']) ?> </p>
             </div>
-            <form class="container-info" action="php/modificar-terapeuta.php" method="POST">
+            <form class="container-info" action="php/modificar-paciente.php" method="POST">
                 <h2>MI INFORMACIÓN</h2>
                 <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
                 <div><b class="nombre">Nombre:</b><input name="nombre" value="<?php echo $row['nombre']; ?>"
