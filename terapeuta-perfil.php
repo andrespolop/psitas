@@ -67,7 +67,7 @@ $row = $ejecutar->fetch_assoc();
                 <div><b class="nombre">Nombre:</b><input name="nombre" value="<?php echo $row['nombre']; ?>" disabled></input></div>
                 <div><b>Cédula:</b><input name="cedula" value="<?php echo $row['cedula']; ?>" disabled></div>
                 <div><b class="email">Email:</b><input type="email" name="correo" required value="<?php echo $row['correo']; ?>"></input></div>
-                <div><b class="celular">Celular:</b><input name="telefono" value="<?php echo $row['telefono']; ?>" maxlength="15"></input></div>
+                <div><b class="celular">Celular:</b><input name="telefono" value="<?php echo $row['telefono']; ?>" maxlength="20"></input></div>
                 <div><b class="direccion">Dirección:</b><input name="direccion" value="<?php echo $row['direccion']; ?>"></input></div>
                 <?php mysqli_free_result($ejecutar) ?>
                 <input class="editar-info" type="submit" value="Actualizar datos">

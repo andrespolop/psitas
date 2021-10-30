@@ -9,7 +9,7 @@ xhr.open("GET", "php/php_terapeuta-horarios.php");
 xhr.onload = () => {
   if (xhr.status == 200) {
     horarios_disponibles = JSON.parse(xhr.responseText);
-    console.log(horarios_disponibles);
+    
     var horas = [8, 9, 10, 11, 12, 13, 14, 15];
 
     function diaCorrecto(x) {
@@ -360,17 +360,6 @@ xhr_dispo.onload = function () {
         }
 
 
-
-
-
-
-
-
-        // p_fecha.setDate(p_fecha.getDate() + 1);
-        // console.log(p_fecha.getDate());
-
-
-        // console.log(document.getElementById("id_terapeuta").value);
 
 
 
