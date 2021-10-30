@@ -11,8 +11,6 @@ $direccion = $_POST['direccion'];
 
 // Creamos el SQL
 
-
-
 $sql = "UPDATE usuarios SET correo = '$correo', telefono = '$telefono', direccion = '$direccion' WHERE id = '$id'";
 
 $resultado = mysqli_query($conexion, $sql);

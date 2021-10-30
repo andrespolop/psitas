@@ -1,24 +1,27 @@
 //funcion split fecha de fecha a string
+
 function fechaStr(x) {
     var fecha= x.split('-')
-    var dia = fecha[2];
     var mes = fecha[1];
+    var fecha_otro = "";
+    var dia = fecha[2];
     var anho = fecha[0];
-    switch (mes) {
-        case 0: mes = "Enero"; break;
-        case 1: mes = "Febrero"; break;
-        case 2: mes = "Marzo"; break;
-        case 3: mes = "Abril"; break;
-        case 4: mes = "Mayo"; break;
-        case 5: mes = "Junio"; break;
-        case 6: mes = "Julio"; break;
-        case 7: mes = "Agosto"; break;
-        case 8: mes = "Septiembre"; break;
-        case 9: mes = "Octubre"; break;
-        case 10: mes = "Noviembre"; break;
-        case 11: mes = "Diciembre"; break;
+    switch (mes-1) {
+        case 0: fecha_otro = "Enero"; break;
+        case 1: fecha_otro = "Febrero"; break;
+        case 2: fecha_otro = "Marzo"; break;
+        case 3: fecha_otro = "Abril"; break;
+        case 4: fecha_otro = "Mayo"; break;
+        case 5: fecha_otro = "Junio"; break;
+        case 6: fecha_otro = "Julio"; break;
+        case 7: fecha_otro = "Agosto"; break;
+        case 8: fecha_otro = "Septiembre"; break;
+        case 9: fecha_otro = "Octubre"; break;
+        case 10: fecha_otro = "Noviembre"; break;
+        case 11: fecha_otro = "Diciembre"; break;
     }
-    let diaI = dia + ' de ' + mes + ' del ' + anho;
+    
+    let diaI = dia + ' de ' + fecha_otro + ' del ' + anho;
     return diaI;
 }
 var xhr_citas = new XMLHttpRequest();
@@ -69,7 +72,7 @@ xhr_citas.onload = function () {
                if (flag1 == false) {
                 const h3 = document.createElement("h3");
                 h3.setAttribute("class", "h3");
-                const h3_text = document.createTextNode("29 de Octubre de 2021");
+                const h3_text = document.createTextNode(fechaStr(citas[i]["fecha"]));
                 h3.appendChild(h3_text);
                 const linea = document.createElement("span");
                 linea.setAttribute("class", "linea");

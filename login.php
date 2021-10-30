@@ -48,13 +48,21 @@ if (!empty($_POST)) {
                 header("Location: paciente-perfil.php");
             
             }
-        }
+        }else if ($tipo_user["tipo_u"] == 3) {
+            if ($rows > 0) {
+                $row = $ejecutar->fetch_assoc();
+                session_start();
+                $_SESSION['id_administrador'] = $row["id"];                
+            
+                header("Location: admin.php");
+            
+            }
     } else {
         echo "<script> alert('Datos ingresados erróneos');
             window.location = 'login.php'
             </script>";
     }
-}
+}}
 ?>
 
 

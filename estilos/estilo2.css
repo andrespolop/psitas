@@ -1,20 +1,96 @@
-*{
-	margin: 0;
+:root {
+	--color_empresa: #b5d2ff;
+	--color_fondo: linear-gradient(to right, rgb(62, 250, 109), rgb(96, 98, 236));
+	--color_fondo_hover: linear-gradient(
+	  to right,
+	  rgb(5, 218, 58),
+	  rgb(47, 50, 219)
+	);
+  }
+  
+  * {
 	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	margin: 0;
 	box-sizing: border-box;
-}
-
-body{
-	background: linear-gradient(to right, rgb(62, 250, 109),rgb(96, 98, 236));;
-	font-family: 'Open sans';
-}
+	list-style: none;
+	text-decoration: none;
+  }
+  
+  body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+	  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	background: rgba(255, 255, 255, 0.226);
+   
+  }
+  
+  /* Estilos del navbar */
+  
+  .nav {
+	background: var(--color_fondo);
+	height: 80px;
+	width: 100%;
+  }
+  
+  .logo_nav {
+	color: rgb(255, 255, 255);
+	font-size: 35px;
+	line-height: 80px;
+	text-decoration: none;
+	padding: 0 50px;
+	font-weight: bold;
+  }
+  
+  .logo_nav a {
+	color: rgb(255, 255, 255);
+  }
+  
+  .nav .ul_nav {
+	float: right;
+	margin-right: 20px;
+  }
+  
+  .li_nav {
+	display: inline-block;
+	line-height: 80px;
+	margin: 0 7px;
+  }
+  
+  .a_nav {
+	color: rgb(17, 17, 17);
+	font-size: 17px;
+	padding: 7px 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+  }
+  
+   .active,
+  .a_nav:hover {
+	background: #1bffbb;
+	transition: 0.5s;
+  }
+  
+  .checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 80px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+  }
+  
+  #check_nav {
+	display: none;
+  }
+  
+  
 
 .wrap{
-	width: 98%;
+	width: 90%;
 	max-width: 98%;
 	margin: 20px auto;
+	border-radius: 10px;
+	
 }
 
 ul.tabs{
@@ -22,35 +98,55 @@ ul.tabs{
 	background: #363636;
 	list-style: none;
 	display: flex;
-	
+	border-radius: 2px;
+    min-width: 1030px;
+	margin: auto;
 	
 }
 
-ul.tabs li{
-	width: 10%;
-}
+
 
 ul.tabs li a{
 	color: #fff;
 	text-decoration: none;
 	font-size: 10px;
 	text-align: center;
-
 	display: block;
 	padding: 10px 0px;
+	border-right: solid 1px gray;
+}
+
+ul.tabs li a:hover{
+	text-decoration: underline;
+}
+
+
+.btn-tabla{
+	width: 400px;
 }
 
 .active{
-	background: #0984CC;
+	background: #307eac;
 }
 
 ul.tabs li a .tab-text{
-	margin-left: 8px;
+	font-size: 13.5px;
+	font-weight: 520;
+	
 }
+
+/* ul.tabs li a .tab-text:hover{
+	text-decoration: underline;
+	
+} */
+
 
 .secciones{
 	width: 100%;
-	background: #fff;
+	background: rgb(218, 218, 218);
+	border-radius: 4px;
+	min-width: 1030px;
+	height: 370px;
 }
 
 .secciones article{
@@ -67,9 +163,11 @@ ul.tabs li a .tab-text{
 	width: 90%;
 	background: white;
 	margin: 30px auto;
-	box-shadow: 0 0 20px #333;
+	box-shadow: 0 0 4px #333;
 	display: grid;
 	grid-template-columns: repeat(6,1fr);
+	border-radius: 5px;
+	min-width: 900px;
 	
 
 }
@@ -83,6 +181,7 @@ ul.tabs li a .tab-text{
 	align-items: center;
 	font-weight: bold;
 	font-size: 1.5em;
+	border-radius: 5px;
 }
 
 .table__header,.table__item{
@@ -102,23 +201,57 @@ ul.tabs li a .tab-text{
 	font-size: 1em;
 }
 /*-----------*/
-.btn {
-background-color: rgb(173, 172, 172);
+.btn-ver {
+background-color: rgb(64, 143, 207);
 text-decoration: none;
 padding: 5px 10px;
 border-radius: 4px;
 cursor: pointer;
-color: black;
+color: rgb(255, 255, 255);
 }
+.btn-ver:hover{
+	background: rgb(34, 109, 170);;
+}
+
+
+
 .btne {
-background-color: rgb(173, 172, 172);
+background-color: rgb(255, 41, 41);
 text-decoration: none;
 padding: 5px 10px;
 border-radius: 4px;
 cursor: pointer;
-color: black;
+color: rgb(248, 248, 248);
 
 }
+.btne:hover{
+	background: red;
+}
+
+
+
+
+.btn-agregar {
+	background-color: rgb(55, 152, 231);
+	text-decoration: none;
+	text-align: right;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	float: right;
+	margin-right: 5%;
+	/* position: relative;
+	left: 850px;
+	top: 20px; */
+	}
+
+.btn-agregar:hover{
+	background:rgb(34, 109, 170);
+}
+
+
+
 .caja {
 width: 90%;
 background-color: #fff;
@@ -193,7 +326,6 @@ header {
 
 /*-----------*/
 
-
 @media screen and (max-width: 700px){
 	ul.tabs li{
 		width: none;
@@ -215,3 +347,4 @@ header {
 		padding: 20px;
 	}
 }
+

@@ -33,8 +33,15 @@ include("cn.php");
 <br>
 <div class="flabel"><label for="" class="flabe2">contraseña</label><input name="contrasena" type="password"class="finput"></div>
 <br>
-<center><input type="submit"class="btn"></center>
+
+
+<input type="submit" class="btn-agregar" onClick="enviar()">
 </form>
+<script>
+     function enviar() {
+       window.location="admin.php";  
+     }
+   </script>
 
 <br> 
 <center><a href="admin.php" class="btn">volver</a></center>
