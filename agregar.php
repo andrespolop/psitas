@@ -16,7 +16,7 @@ $resultado = mysqli_query($conexion, $insertar1);
 
 if($resultado){
     echo "<script>alert('REGISTRO EXITOSO');
-    window.location='/'
+    window.location='admin.php'
     </script>";
 }else{
     echo "<script>alert('REGISTRO FALLIDO');

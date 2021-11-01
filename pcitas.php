@@ -17,6 +17,20 @@ $id2= $_GET["id"]
 	<script src="src/main.js"></script>
 </head>
 <body>
+
+<nav class="nav">
+        <input type="checkbox" id="check_nav">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo_nav"><a href="index.php">Psitas</a></label>
+        <ul class="ul_nav">
+            
+            <li class="li_nav"><a class="a_nav" href="php/salir.php">SALIR</a></li>
+        </ul>
+    </nav>
+
+
 <div class="caja">
 <div class="container-table"> 
 	<div class="table__title">CITAS</div>
@@ -35,7 +49,7 @@ $id2= $_GET["id"]
 					
 
 </div>	
-<center><a href="admin.php" class="btn">volver</a></center>
+<center><a href="admin.php" class="btn-volver">Volver</a></center>
 </div>	
 			
 		
