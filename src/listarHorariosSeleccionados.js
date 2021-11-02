@@ -4,15 +4,31 @@ function diaCorrectoSoloNumero() {//para tener solo el numero del día, porque c
     return fechaNum;
 }
 function splitFecha(x) {// x debe ser igual a fecha, y igual a 1 para mes, 2 para dia, recibe un string 
-    let nums = x.split('-')
-    let num = nums[2];
-    return num;   
+    let fecha = x.split('-')
+    return fecha;   
 }
 
-function contar() {//Cuenta cantidad de citas de un paciente
+function verificarMayorHoy(x) {
+    var hoy = new Date();
+    var dia = new Date();
+    let anho1 = x[0];
+    let mes1 = x[1]-1;
+    let dia1 = x[2];
+    var bool = false;
+    dia.setDate(dia1);
+    dia.setMonth(mes1);
+    dia.setFullYear(anho1);
+    if (dia >= hoy) {
+        bool = true;
+    }
+    return bool;
+}
+
+
+function contar() {//Cuenta cantidad de citas de un paciente,CORREGIR con splitfecha y diacorrectosolonumero
     var conteo = 0;
     for (let index = 0; index < objectJ.length; index++) {
-        if (objectJ[index].id_paciente == id_paciente && splitFecha(objectJ[index].fecha) >= diaCorrectoSoloNumero()) {
+        if (objectJ[index].id_paciente == id_paciente && verificarMayorHoy(splitFecha(objectJ[index].fecha))) {
             conteo++;
         }
     }
@@ -59,7 +75,9 @@ xhr.onload = function () {
             div_titulo.appendChild(ico);            
             document.getElementsByClassName("contenedor-citas")[0].appendChild(div_titulo); 
             for (let index = 0; index < objectJ.length; index++) {
-                if (objectJ[index].id_paciente == id_paciente && splitFecha(objectJ[index].fecha) >= diaCorrectoSoloNumero()) {
+                var fecha = new Date();
+                if (objectJ[index].id_paciente == id_paciente && verificarMayorHoy(splitFecha(objectJ[index].fecha))) {
+                    
                     const div_citas = document.createElement("div");//div general
                     div_citas.setAttribute("class", "div-citas");
                     const div_cita = document.createElement("div");//div máscara del general
