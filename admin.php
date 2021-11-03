@@ -1,5 +1,15 @@
 <?php 
 include("cn.php");
+
+session_start();
+session_write_close();
+
+
+if (!isset($_SESSION['id_administrador'])) {
+    header("Location: login.php");
+}
+
+
 $terapeutas = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono`, `id` FROM `usuarios` WHERE tipo_u=2";
 $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` FROM `usuarios` WHERE tipo_u=1";
 ?>
@@ -12,6 +22,7 @@ $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` F
 	<title>ADMINISTRADOR</title>
 	<link rel="stylesheet" href="estilos/estilo2.css">
 	<link rel="stylesheet" href="font-awesome.css">
+	<link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
 	<script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="scripts/main.js"></script>

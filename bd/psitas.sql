@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+--- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2021 a las 22:08:44
+-- Tiempo de generación: 03-11-2021 a las 21:02:42
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -20,26 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `psitas`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `citas`
---
-
-CREATE TABLE `citas` (
-  `id` int(11) NOT NULL,
-  `terapeuta_id` int(11) NOT NULL,
-  `paciente_id` int(11) NOT NULL,
-  `fecha` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `citas`
---
-
-INSERT INTO `citas` (`id`, `terapeuta_id`, `paciente_id`, `fecha`) VALUES
-(1, 1, 4, '2022-10-25 20:00:00');
 
 -- --------------------------------------------------------
 
@@ -61,13 +41,12 @@ CREATE TABLE `horarios_disponibles` (
 --
 
 INSERT INTO `horarios_disponibles` (`id_horarios`, `id`, `fecha`, `hora`, `id_terapeuta`, `id_paciente`) VALUES
-(1, 'h1', '2021-10-28', 8, 1, 7),
-(2, 'h10', '2021-10-29', 9, 1, 6),
-(3, 'h5', '2021-10-28', 12, 1, 7),
-(4, 'h17', '2021-10-30', 8, 1, 7),
-(5, 'h25', '2021-10-31', 8, 1, NULL),
-(6, 'h3', '2021-10-28', 10, 2, 6),
-(7, 'h7', '2021-10-28', 14, 2, NULL);
+(1, 'h5', '2021-11-03', 12, 1, NULL),
+(2, 'h25', '2021-11-06', 8, 1, 7),
+(3, 'h41', '2021-11-08', 8, 1, 6),
+(4, 'h17', '2021-11-05', 8, 2, 6),
+(5, 'h45', '2021-11-08', 12, 2, NULL),
+(6, 'h55', '2021-11-09', 14, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,7 +60,7 @@ CREATE TABLE `usuarios` (
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(50) NOT NULL,
   `contrasena` varchar(50) NOT NULL,
-  `telefono` int(11) NOT NULL,
+  `telefono` bigint(20) NOT NULL,
   `cedula` int(10) NOT NULL,
   `direccion` varchar(255) DEFAULT NULL,
   `tipo_u` int(1) NOT NULL DEFAULT 1
@@ -92,24 +71,16 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `contrasena`, `telefono`, `cedula`, `direccion`, `tipo_u`) VALUES
-(1, 'Andres', 'Polo', 'polo@gmail.com', 'polopolo', 2147483647, 1234, 'Dg 32 #80D-87, conjunto residencial Fiorentti, apto 614', 2),
+(1, 'Andres', 'Polo', 'polo@gmail.com', 'polopolo', 300703158, 1234, 'Recreo', 2),
 (2, 'Fernando', 'Padilla', 'padilla@gmail.com', 'padilla123', 1231342543, 1235, 'Marbella', 2),
-(3, 'dario', 'ruiz', 'dario@gmail.com', 'dario123', 1234599929, 1236, NULL, 2),
-(4, 'pepe', 'peres', 'elpepe@gmail.com', '007123', 3140002, 1237, NULL, 3),
-(6, 'AndresPaci', 'Paciente', 'andresp@gmail.com', 'polo123', 323232323, 12112121, NULL, 1),
-(7, 'padillaP', 'Paciente', 'fernandop@gmail.com', 'padilla123', 2312124, 45447778, NULL, 1);
+(4, 'root2', 'root2', 'root2@gmail.com', 'root', 123456789, 123456789, NULL, 3),
+(6, 'Andres', 'Paciente', 'andresp@gmail.com', 'polo123', 323232323, 12112121, 'Zaragocilla', 1),
+(7, 'padillaP', 'Paciente', 'fernandop@gmail.com', 'padilla123', 2312124, 45447778, NULL, 1),
+(15, 'root', 'root', 'root@gmail.com', 'root', 123456789, 123456789, NULL, 3);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `citas`
---
-ALTER TABLE `citas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `terapeuta_id` (`terapeuta_id`),
-  ADD KEY `paciente_id` (`paciente_id`);
 
 --
 -- Indices de la tabla `horarios_disponibles`
@@ -128,33 +99,16 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `citas`
---
-ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de la tabla `horarios_disponibles`
 --
 ALTER TABLE `horarios_disponibles`
-  MODIFY `id_horarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_horarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `citas`
---
-ALTER TABLE `citas`
-  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`terapeuta_id`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `citas_ibfk_2` FOREIGN KEY (`paciente_id`) REFERENCES `usuarios` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

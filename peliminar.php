@@ -1,6 +1,19 @@
 <?php 
 include("cn.php");
+
+
+
+session_start();
+session_write_close();
+
+
+if (!isset($_SESSION['id_administrador'])) {
+    header("Location: login.php");
+}
+
 $ide= $_GET["id"]
+
+
 
 ?>
 
@@ -27,11 +40,11 @@ $ide= $_GET["id"]
     
     
     ?>
-<center><marquee style='width: 100%; color: blue;'><h1>OPERACION EXITOSA | OPERACION EXITOSA | OPERACION EXITOSA | OPERACION EXITOSA</h1></marquee></center>
+<center><h1>OPERACIÓN EXITOSA</h1></center>
 <br> 
 <center><p><h1>Se elimino correctamente el registro</h1></p></center>
 <br> 
-<center><a href="admin.php" class="btn">volver</a></center>
+<center><a href="admin.php" class="btn-volver">volver</a></center>
 
 
 

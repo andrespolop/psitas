@@ -1,5 +1,14 @@
 <?php 
 include("cn.php");
+
+session_start();
+session_write_close();
+
+
+if (!isset($_SESSION['id_administrador'])) {
+    header("Location: login.php");
+}
+
 $terapeutas = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono`, `id` FROM `usuarios` WHERE tipo_u=2";
 $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` FROM `usuarios` WHERE tipo_u=1";
 ?>

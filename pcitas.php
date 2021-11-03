@@ -1,5 +1,16 @@
 <?php 
 include("cn.php");
+
+
+session_start();
+session_write_close();
+
+
+if (!isset($_SESSION['id_administrador'])) {
+    header("Location: login.php");
+}
+
+
 $id2= $_GET["id"]
 
 ?>

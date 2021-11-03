@@ -24,8 +24,8 @@ if (!empty($_POST)) {
     // echo $tipo_user['tipo_u'];
     
 
-    $rows = $ejecutar->num_rows;
-    if (isset($tipo_user)) {
+    $rows = mysqli_num_rows($ejecutar);
+    if ($rows>0) {
 
         if ($tipo_user["tipo_u"] == 2) {
             if ($rows > 0) {
@@ -57,12 +57,15 @@ if (!empty($_POST)) {
                 header("Location: admin.php");
             
             }
-    } else {
-        echo "<script> alert('Datos ingresados erróneos');
-            window.location = 'login.php'
-            </script>";
-    }
-}}
+    } 
+}else {
+    echo "<script> alert('Datos ingresados erróneos');
+         window.location = 'login.php'
+        </script>";
+        
+}
+
+}
 ?>
 
 
