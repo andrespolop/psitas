@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro en PSITAS</title>
     <link rel="stylesheet" href="estilos/registro.css">
-    <script src="src/registro.js"></script>
 </head>
 
 <body>

@@ -27,12 +27,12 @@ $row = $ejecutar->fetch_assoc();
     <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
     <script type="text/javascript">var id_paciente=<?php echo $id_paciente;?></script>
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
-    <script src="src/listarHorariosSeleccionados.js" defer></script>
-    <link rel="stylesheet" href="estilos/citas-agendadas.css"><!--cambiar-->
+    <script src="scripts/listarHorariosSeleccionados.js" defer></script>
+    <link rel="stylesheet" href="estilos/citas-agendadas.css">
     <title>CITAS AGENDADAS</title>
 </head>
 <body>
-    <!-- CREAMOS EL NAVBAR DEL APARTADO DE CITAS DEL PACIENTE-->
+    
 
     <nav>
         <input type="checkbox" id="check">

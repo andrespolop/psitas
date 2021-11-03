@@ -51,7 +51,7 @@ if (isset($_POST["check"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
-    <script src="src/listarHorarios.js" defer></script>
+    <script src="scripts/listarHorarios.js" defer></script>
     <link rel="stylesheet" href="estilos/paciente-citas.css">
     <title>AGENDAR CITAS</title>
 </head>

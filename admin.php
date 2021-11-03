@@ -14,7 +14,7 @@ $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` F
 	<link rel="stylesheet" href="font-awesome.css">
 	<script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="src/main.js"></script>
+	<script src="scripts/main.js"></script>
 </head>
 
 
@@ -97,6 +97,6 @@ $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` F
 			
 		</div>
 	</div>
-	<script src="src/confirmo.js"></script>
+	<script src="scripts/confirmo.js"></script>
 </body>
 </html>

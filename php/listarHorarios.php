@@ -27,11 +27,3 @@ while ($row = mysqli_fetch_assoc($resultado)) {
 echo json_encode($rows);
 
 
-//revisamos que exista alguna fila
-
-/*$check = mysqli_num_rows ($resultado)
-if ($check > 0) {
-    while ($row <|= 10) {
-        # code...
-    }
-}*/

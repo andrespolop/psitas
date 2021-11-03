@@ -10,9 +10,9 @@ include("cn.php");
 	<title>ADMINISTRADOR</title>
 	<link rel="stylesheet" href="estilos/estilo2.css">
 	<link rel="stylesheet" href="font-awesome.css">
-
+  <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="main.js"></script>
+	<script src="scripts/main.js"></script>
 </head>
 <body>
 

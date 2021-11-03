@@ -81,7 +81,7 @@ if (!empty($_POST)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login en PSITAS</title>
     <link rel="stylesheet" href="estilos/login.css">
-    <script src="src/registro.js"></script>
+    
     <title>Login</title>
 </head>
 

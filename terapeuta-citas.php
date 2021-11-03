@@ -19,7 +19,7 @@ if (!isset($_SESSION['id_terapeuta'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="iconos/psi-tas_icon_No-Background.ico" type="image/icon type">
-    <script src="src/terapeuta-citas.js" defer></script>
+    <script src="scripts/terapeuta-citas.js" defer></script>
     <script src="https://kit.fontawesome.com/50ca7f45e4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos/terapeuta-citas.css">
     <title>Terapeuta-Citas</title>
