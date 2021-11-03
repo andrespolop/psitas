@@ -25,7 +25,7 @@ $paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` F
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo_nav"><a href="index.php">Psitas</a></label>
+        <label class="logo_nav"><a href="login.php">Psitas</a></label>
         <ul class="ul_nav">
             
             <li class="li_nav"><a class="a_nav" href="php/salir.php">SALIR</a></li>

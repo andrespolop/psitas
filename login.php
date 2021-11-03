@@ -88,10 +88,10 @@ if (!empty($_POST)) {
 <body>
 
     <header>
-        <a href="index.php">
+        <a href="login.php">
             <h1 class="titulo_psitas">PSI-TAS</h1>
         </a>
-        <a href="index.php">
+        <a href="login.php">
             <div class="imagen_icono"><img src="iconos/psitas_icon_NoBackground.jpg" alt="imagen_empresa"></div>
         </a>
     </header>

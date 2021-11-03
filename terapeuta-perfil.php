@@ -5,7 +5,7 @@ session_write_close();
 
 
 if (!isset($_SESSION['id_terapeuta'])) {
-    header("Location: index.php");
+    header("Location: login.php");
 }
 $id_terapeuta = $_SESSION['id_terapeuta'];
 
@@ -43,7 +43,7 @@ $row = $ejecutar->fetch_assoc();
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo"><a href="index.html">Psitas</a></label>
+        <label class="logo"><a href="login.php">Psitas</a></label>
         <ul>
             <li><a href="terapeuta-citas.php">CITAS</a></li>
             <li><a href="terapeuta-horarios.php">HORARIOS</a></li>

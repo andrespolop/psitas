@@ -17,14 +17,8 @@ FROM horarios_disponibles as ho JOIN usuarios as us ON ho.id_terapeuta = us.id O
 //Ejecutar la sentencia SQL
 $resultado = mysqli_query($conn,$sql);
 
-//Verificamos ejecución
-/*if(!$resultado){
-    echo "No se ejecutó";
-}else{
-    echo "<script>alert('Registro exitoso');
-    window.location = '../index.php';
-    </script>";
-}*/
+
+
 $rows = array();
 while ($row = mysqli_fetch_assoc($resultado)) {
     array_push($rows,$row);

@@ -5,7 +5,7 @@ session_write_close();
 
 
 if (!isset($_SESSION['id_paciente'])) {
-    header("Location: index.php");
+    header("Location: login.php");
 }
 $id_paciente = $_SESSION['id_paciente'];
 
@@ -39,7 +39,7 @@ $row = $ejecutar->fetch_assoc();
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo"><a href="index.html">PSITAS</a></label>
+        <label class="logo"><a href="login.php">PSITAS</a></label>
         <ul>
             <li><a href="paciente-citas.php">AGENDAR CITAS</a></li>
             <li><a class="active"href="citas-agendadas.php">CITAS AGENDADAS</a></li>
