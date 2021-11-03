@@ -1,7 +1,7 @@
 <?php 
 include("cn.php");
 $terapeutas = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono`, `id` FROM `usuarios` WHERE tipo_u=2";
-$paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` FROM `usuarios` WHERE tipo_u=3";
+$paciente = "SELECT `nombre`, `apellido`,`cedula`, `correo`, `telefono` , `id` FROM `usuarios` WHERE tipo_u=1";
 ?>
 
 <!DOCTYPE html>

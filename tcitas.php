@@ -38,13 +38,13 @@ $id1= $_GET["id"]
 	<div class="table__title">CITAS</div>
 					
 	<?php
-	$tcita = "SELECT u.nombre,u.apellido,u.cedula,c.fecha FROM citas c, usuarios u WHERE c.paciente_id=u.id AND c.terapeuta_id= $id1";
+	$tcita = "SELECT u.nombre,u.apellido,u.cedula,c.fecha,c.hora  FROM horarios_disponibles c, usuarios u WHERE c.id_paciente=u.id AND c.id_terapeuta= $id1";
 	$resultadop = mysqli_query($conexion, $tcita );
 	while($row1 = mysqli_fetch_assoc($resultadop)) { ?>
 
 		<div class="table__header">paciente</div> <div class="table__item"><?php echo $row1["nombre"] ?> <?php echo $row1["apellido"] ?></div>
 		<div class="table__header">cedula</div><div class="table__item"><?php echo $row1["cedula"] ?></div>
-		<div class="table__header">fecha</div><div class="table__item"><?php echo $row1["fecha"] ?></div>
+		<div class="table__header">fecha</div><div class="table__item"><?php echo $row1["fecha"] ?> : <?php echo $row1["hora"] ?></div>
 
 	<?php } ?>
 					
